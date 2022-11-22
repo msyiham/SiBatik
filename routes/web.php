@@ -37,6 +37,8 @@ Route::get('/profil', function () {
 
 Route::get('/regis', [App\Http\Controllers\RegisterController::class,'index']);
 Route::post('/proses-regis', [App\Http\Controllers\RegisterController::class,'prosesRegis']);
+Route::post('/proses-regis', [App\Http\Controllers\RegisterController::class,'prosesRegis']);
+
 
 Route::get('/login', function () {
     return view('user.login.Login');
