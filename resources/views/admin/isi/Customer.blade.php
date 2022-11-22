@@ -1,61 +1,50 @@
 @extends('Master.Admin')
 @section('title','Customer')
 @section('customer')
-<div class="col-md-10 p-5 pt-2 d" style="margin-top: 100px">
-    <table class="table table-bordered " style="width:92%;" >
-        <thead>
-          <tr style="background-color:rgba(225, 240, 23, 0.811) ">
-            <th scope="col">Id</th>
-            <th scope="col">Username</th>
-            <th scope="col">Email</th>
-            <th scope="col">Alamat</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="">Larry the Bird</td>
-            <td>asdassadasd</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td colspan="">Larry the Bird</td>
-            <td>asdassadasd</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td colspan="">Larry the Bird</td>
-            <td>asdassadasd</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">6</th>
-            <td colspan="">Larry the Bird</td>
-            <td>asdassadasd</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">7</th>
-            <td colspan="">Larry the Bird</td>
-            <td>asdassadasd</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
+<div class="col-md-10 p-5 pt-2 d" style="margin-top: 50px">
+  <h3 class=""><i class="fa-solid fa-user"></i> Customer </h3>
+  <hr>
+  <div class="row mt-5 justify-content-center">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>Data Customer</h1>
+            </div>
+            <div class="card-body">
+                <div class="row" >
+                    <table class="table mt-4" id="myTable">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Alamat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse ($hmm1 as $item)
+                                <tr align="left">
+                                    <td>{{ $item['Id'] }}</td>
+                                    <td>{{ $item['Username'] }}</td>
+                                    <td>{{ $item['Email'] }}</td>
+                                    <td>{{ $item['Alamat'] }}</td>
+                                    <td>
+                                    </td>
+                                </tr>
+                            @empty
+                                <div class="alert alert-danger" role="alert">
+                                    Data tidak valid!
+                                </div>
+                             @endforelse
+                        </tbody>
+                    </table>
+                </div>
+               </div>
+              </div>
+             </div>
+           </div>
+        </div>
+</div>
 </div>
 
 @endsection
