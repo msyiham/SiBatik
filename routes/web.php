@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\BuyController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +36,9 @@ Route::get('/profil', function () {
     return view('user.page.profil');
 });
 
-Route::get('/regis', [App\Http\Controllers\RegisterController::class,'index']);
-Route::post('/proses-regis', [App\Http\Controllers\RegisterController::class,'prosesRegis']);
-Route::post('/proses-regis', [App\Http\Controllers\RegisterController::class,'prosesRegis']);
+// Route::get('/regis', [App\Http\Controllers\RegisterController::class,'index']);
+// Route::post('/proses-regis', [App\Http\Controllers\RegisterController::class,'prosesRegis']);
+// Route::post('/proses-regis', [App\Http\Controllers\RegisterController::class,'prosesRegis']);
 
 
 Route::get('/login', function () {
@@ -55,3 +56,10 @@ Route::get('/Customer', function () {
 Route::get('/Produk', function () {
     return view('admin.isi.Product');
 });
+
+//crud customer
+Route::get('/customers/regis', [CustomerController::class,'create'])
+        ->name('customers.create');
+Route::post('/customers', [CustomerController::class,'store'])
+        ->name('customers.store');
+// Route::resource('customers', CustomerController::class);

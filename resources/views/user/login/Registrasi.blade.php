@@ -130,7 +130,7 @@
 <div class=" regis down content">
 <article class="card-body mx-auto" style="max-width: 400px;">
     <img style="width:150px; height:150px;" class="fadeIn first" src={{ asset('images/SiBatik.png') }}>
-<form action="{{ url('/proses-regis') }}" method="POST">
+<form action="{{ route('customers.store') }}" method="POST">
   @csrf
 	<h4 class="card-title mt-3 text-center fadeIn ">Create Account</h4>
   <span>
