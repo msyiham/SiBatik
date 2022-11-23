@@ -5,6 +5,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\BuyController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +34,9 @@ Route::get('/about', function () {
 Route::get('/profil', function () {
     return view('user.page.profil');
 });
-Route::get('/login', function () {
-    return view('user.login.Login');
-});
+Route::get('/login', [App\Http\Controllers\LoginController::class,'index']);
+Route::post('/login', [App\Http\Controllers\LoginController::class,'authenticate'])
+        ->name('proses.login');
 
 //halaman admin
 Route::get('/a', function () {
