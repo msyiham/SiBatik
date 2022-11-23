@@ -56,7 +56,7 @@ class CustomerController extends Controller
         ]);
         
         if ($validator->fails()) {
-            return redirect('/regis')->withErrors($validator)->withInput();
+            return redirect('/customers/regis')->withErrors($validator)->withInput();
         }else {
             $hash = bcrypt($request->password);
             DB::table('customers')->insert([
