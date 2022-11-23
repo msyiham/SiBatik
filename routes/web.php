@@ -18,9 +18,9 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 //halaman customer
 Route::get('/home', function () {
@@ -28,36 +28,27 @@ Route::get('/home', function () {
 });
 Route::get('/shop', [App\Http\Controllers\ProdukController::class,'index']);
 Route::get('/buy', [App\Http\Controllers\BuyController::class,'index']);
-Route::get('/about', function () {
-    return view('user.page.about');
-});
+Route::get('/about', [App\Http\Controllers\AboutController::class,'about']);
 Route::get('/profil', function () {
     return view('user.page.profil');
 });
+
+//Login
 Route::get('/login', [App\Http\Controllers\LoginController::class,'index']);
 Route::post('/login', [App\Http\Controllers\LoginController::class,'authenticate'])
-        ->name('proses.login');
+->name('proses.login');
 
 //halaman admin
-Route::get('/a', function () {
-    return view('admin.Master.Admin');
-});
-Route::get('/Dashbord', function () {
-    return view('admin.isi.Dashbord');
-});
-Route::get('/Customer', function () {
-    return view('admin.isi.Customer');
-});
-Route::get('/Produk', function () {
-    return view('admin.isi.Product');
-});
+Route::get('/admin',[App\Http\Controllers\AdminController::class,'admin']);
+Route::get('/Dashbord', [App\Http\Controllers\AdminController::class,'dashbord']);
+Route::get('/Customer', [App\Http\Controllers\AdminController::class,'customer']);
+Route::get('/Produk', [App\Http\Controllers\AdminController::class,'product']);
+Route::get('/input', [App\Http\Controllers\AdminController::class,'inputproduct']);
+
 
 //crud customer
 Route::get('/customers/regis', [CustomerController::class,'create'])
-        ->name('customers.create');
+->name('customers.create');
 Route::post('/customers', [CustomerController::class,'store'])
-        ->name('customers.store');
+->name('customers.store');
 // Route::resource('customers', CustomerController::class);
-// hallo
-// SYIHAM
-//Nuafal

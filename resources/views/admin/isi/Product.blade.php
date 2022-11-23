@@ -1,4 +1,4 @@
-@extends('Master.template')
+@extends('admin\isi.Admin')
 @section('title','Product')
 @section('produk')
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -26,7 +26,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($hmm as $item)
+                                {{-- @forelse ($hmm as $item)
                                     <tr align="left">
                                         <td>{{ $item['nama_barang'] }}</td>
                                         <td>{{ $item['stok_barang'] }}</td>
@@ -43,7 +43,7 @@
                                     <div class="alert alert-danger" role="alert">
                                         Data tidak valid!
                                     </div>
-                                 @endforelse
+                                 @endforelse --}}
                             </tbody>
                         </table>
                     </div>

@@ -25,7 +25,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-:root {
+/* :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
@@ -77,8 +77,8 @@
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
   --bs-body-bg: #fff;
-}
-
+} */
+/* 
 *,
 *::before,
 *::after {
@@ -272,7 +272,7 @@ samp {
   unicode-bidi: bidi-override;
 }
 
-pre {
+/* pre {
   display: block;
   margin-top: 0;
   margin-bottom: 1rem;
@@ -2349,7 +2349,7 @@ progress {
   border-radius: 0.2rem;
 }
 .form-control-sm::-webkit-file-upload-button {
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 0.5rem; 
   margin: -0.25rem -0.5rem;
   -webkit-margin-end: 0.5rem;
           margin-inline-end: 0.5rem;
@@ -11705,14 +11705,14 @@ body {
   clear: both;
   content: " ";
   display: table;
-}
+} */
 
 
     </style>
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <nav class="sb-topnav navbar navbar-expand navbar-danger bg-danger">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Selamat Datang Admin</a>
+            <a class="navbar-brand ps-3 text-white" href="index.html">Selamat Datang Admin</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -11733,7 +11733,7 @@ body {
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="/Admin/Dashbord" >
+                            <a class="nav-link" href="/Dashbord" >
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -11743,7 +11743,7 @@ body {
                                 Customer
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a> --}}
-                            <a class="nav-link" href="/Admin/Customer" >
+                            <a class="nav-link" href="/Customer" >
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Customer
                             </a>
@@ -11752,7 +11752,7 @@ body {
                                 Product
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a> --}}
-                            <a class="nav-link" href="/Admin/Produk" >
+                            <a class="nav-link" href="/Produk" >
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Product
                             </a>
@@ -11761,7 +11761,7 @@ body {
                                 Input Product
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a> --}}
-                            <a class="nav-link" href="/Admin/input" >
+                            <a class="nav-link" href="/input" >
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Input Product
                             </a>
