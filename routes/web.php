@@ -57,3 +57,4 @@ Route::get('/customers/regis', [CustomerController::class,'create'])
 Route::post('/customers', [CustomerController::class,'store'])
         ->name('customers.store');
 // Route::resource('customers', CustomerController::class);
+// hallo
