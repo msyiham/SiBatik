@@ -59,3 +59,4 @@ Route::post('/customers', [CustomerController::class,'store'])
 // Route::resource('customers', CustomerController::class);
 // hallo
 // SYIHAM
+//Nuafal
