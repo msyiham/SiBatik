@@ -20,30 +20,24 @@ use App\Http\Controllers\CustomerController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//halaman customer
 Route::get('/home', function () {
     return view('user.page.home');
 });
-
 Route::get('/shop', [App\Http\Controllers\ProdukController::class,'index']);
 Route::get('/buy', [App\Http\Controllers\BuyController::class,'index']);
 Route::get('/about', function () {
     return view('user.page.about');
 });
-// Route::get('/buy(nama_barang)', function () {
-//     return view('user.page.buy');
-// });
 Route::get('/profil', function () {
     return view('user.page.profil');
 });
-
-// Route::get('/regis', [App\Http\Controllers\RegisterController::class,'index']);
-// Route::post('/proses-regis', [App\Http\Controllers\RegisterController::class,'prosesRegis']);
-// Route::post('/proses-regis', [App\Http\Controllers\RegisterController::class,'prosesRegis']);
-
-
 Route::get('/login', function () {
     return view('user.login.Login');
 });
+
+//halaman admin
 Route::get('/a', function () {
     return view('admin.Master.Admin');
 });
