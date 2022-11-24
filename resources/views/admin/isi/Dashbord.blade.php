@@ -1,4 +1,4 @@
-@extends('Master.template')
+@extends('admin\isi.Admin')
 @section('title','Dashbord')
 @section('dasbord')
 <style>

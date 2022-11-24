@@ -59,7 +59,7 @@ class CustomerController extends Controller
             return redirect('/customers/regis')->withErrors($validator)->withInput();
         }else {
             $hash = bcrypt($request->password);
-            DB::table('customers')->insert([
+            Customer::create([
                 "nama" => $request->nama,
                 "email" => $request->email,
                 "telepon" =>$request->telepon,

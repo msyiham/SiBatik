@@ -193,10 +193,9 @@ a:focus {
                 transition: all 0.3s;
             }
 
-            &:hover,
             &.active {
                 .nav-link {
-                    color: $primary1;
+                    color: $yellow;
                 }
             }
         }

@@ -5,6 +5,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\BuyController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,49 +18,37 @@ use App\Http\Controllers\CustomerController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+//halaman customer
 Route::get('/home', function () {
     return view('user.page.home');
 });
-
 Route::get('/shop', [App\Http\Controllers\ProdukController::class,'index']);
 Route::get('/buy', [App\Http\Controllers\BuyController::class,'index']);
-Route::get('/about', function () {
-    return view('user.page.about');
-});
-// Route::get('/buy(nama_barang)', function () {
-//     return view('user.page.buy');
-// });
+Route::get('/about', [App\Http\Controllers\AboutController::class,'about']);
 Route::get('/profil', function () {
     return view('user.page.profil');
 });
 
-// Route::get('/regis', [App\Http\Controllers\RegisterController::class,'index']);
-// Route::post('/proses-regis', [App\Http\Controllers\RegisterController::class,'prosesRegis']);
-// Route::post('/proses-regis', [App\Http\Controllers\RegisterController::class,'prosesRegis']);
+//Login
+Route::get('/login', [App\Http\Controllers\LoginController::class,'index']);
+Route::post('/login', [App\Http\Controllers\LoginController::class,'authenticate'])
+->name('proses.login');
 
+//halaman admin
+Route::get('/admin',[App\Http\Controllers\AdminController::class,'admin']);
+Route::get('/Dashbord', [App\Http\Controllers\AdminController::class,'dashbord']);
+Route::get('/Customer', [App\Http\Controllers\AdminController::class,'customer']);
+Route::get('/Produk', [App\Http\Controllers\AdminController::class,'product']);
+Route::get('/input', [App\Http\Controllers\AdminController::class,'inputproduct']);
 
-Route::get('/login', function () {
-    return view('user.login.Login');
-});
-Route::get('/a', function () {
-    return view('admin.Master.Admin');
-});
-Route::get('/Dashbord', function () {
-    return view('admin.isi.Dashbord');
-});
-Route::get('/Customer', function () {
-    return view('admin.isi.Customer');
-});
-Route::get('/Produk', function () {
-    return view('admin.isi.Product');
-});
 
 //crud customer
 Route::get('/customers/regis', [CustomerController::class,'create'])
-        ->name('customers.create');
+->name('customers.create');
 Route::post('/customers', [CustomerController::class,'store'])
-        ->name('customers.store');
+->name('customers.store');
 // Route::resource('customers', CustomerController::class);
