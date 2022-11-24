@@ -1,3 +1,117 @@
+<style>
+    .demo{ font-family: 'Noto Sans', sans-serif; }
+.w-12{ width: 125px; }
+.w-4{ width: 40px; }
+.panel{
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
+.panel .panel-heading{
+    background: linear-gradient(#f5f5f5, #d9d9d9);
+    padding: 15px;
+    border-radius: 0;
+    border: none;
+}
+.panel .panel-heading .title{
+    color: #555;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: capitalize;
+    line-height: 35px;
+    margin: 0;
+}
+.panel .panel-heading .btn{ border-radius: 0; }
+.panel .panel-body{ padding: 0; }
+.panel .panel-body .table{
+    background: linear-gradient(transparent, rgba(255, 255, 255, 0.2), transparent);
+    border: 1px solid #dedede;
+}
+.panel .panel-body .table thead tr th{
+    color: #555;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 15px;
+    border: none;
+    border: 1px solid #dedede;
+}
+.panel .panel-body .table tbody tr td{
+    color: #777;
+    font-size: 15px;
+    padding: 15px;
+    vertical-align: middle;
+    border: 1px solid #dedede;
+}
+.panel .panel-body .table tbody .action-list{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+/* .panel .panel-body .table tbody .action-list li{
+    margin: 0 5px;
+    display: inline-block;
+}
+.panel .panel-body .table tbody .action-list li a{
+    font-size: 15px;
+    line-height: 33px;
+    height: 35px;
+    width: 35px;
+    padding: 0;
+    transition: all 0.3s ease 0s;
+} */
+.panel .panel-footer{
+    color: #555;
+    background: linear-gradient(#d9d9d9,#f5f5f5);
+    padding: 15px;
+    border: none;
+    border-radius: 0;
+}
+.panel .panel-footer .col{ line-height: 30px; }
+/* .pagination{ margin: 0; }
+.pagination li a{
+    color: #555;
+    background-color: transparent;
+    border: 2px solid#555;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 27px;
+    width: 31px;
+    height: 31px;
+    padding: 0;
+    margin: 0 3px;
+    border-radius: 0;
+}
+.pagination li a:hover,
+.pagination li a:focus,
+.pagination li.active a,
+.pagination li.active a:hover{
+    color: #fff;
+    background-color: #555;
+    border-color: #555;
+} */
+/* .pagination li:first-child a,
+.pagination li:last-child a{
+    border-radius: 0;
+    width: auto;
+    padding: 0 10px;
+} */
+@media only screen and (max-width:767px){
+    .panel .panel-heading .title{
+        text-align: center;
+        margin: 0 0 10px;
+    }
+    .panel .panel-heading .btn-group{
+        font-size: 0;
+        text-align: center;
+        margin: 0 auto;
+        display: block;
+    }
+    .panel .panel-heading .btn-group .btn{ float: none; }
+}
+</style>
 @extends('admin\isi.Admin')
 @section('title','Product')
 @section('produk')
@@ -5,53 +119,77 @@
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 <div class="col-md-10 p-5 pt-2 d" style="margin-top: 10px">
-    <h3 class="mt-3"><i class="fa-solid fa-shirt"></i> Produk </h3>
-    <hr>
-    <div class="row mt-5 justify-content-center">
-        <div class="col-8">
-            <div class="card">
-                <div class="card-header">
-                    <h1>Data Product</h1>
+    <div class="row justify-content-center">
+        <div class="col">
+            <h3 class="mt-3"><i class="fa-solid fa-shirt"></i> Produk </h3>
+        </div>
+        <div class="col">
+            <a href="/input" class="btn btn-primary">
+                <i class="fa-solid fa-plus"></i>
+                Tambah Produk
+            </a>
+        </div>
+        <hr>
+    </div>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css /> -->
+    <div class="panel">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col col-sm-6 col-xs-12">
+                    <h4 class="title">Data List</h4>
                 </div>
-                <div class="card-body">
-                    <div class="row" >
-                        <table class="table mt-4" id="myTable">
-                            <thead>
-                                <tr>
-                                    <th>Nama</th>
-                                    <th>Stok</th>
-                                    <th>Harga</th>
-                                    <th>Keterangan</th>
-                                    <th>Edit</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{-- @forelse ($hmm as $item)
-                                    <tr align="left">
-                                        <td>{{ $item['nama_barang'] }}</td>
-                                        <td>{{ $item['stok_barang'] }}</td>
-                                        <td>{{ $item['harga_barang'] }}</td>
-                                        <td>{{ $item['keterangan_barang'] }}</td>
-                                        <td>
-                                            <form action="">
-                                                <a href="edit.php"><button type="button" class="btn btn-warning"name="edit"><i class="fa fa-pencil" ></i></button></a>
-                                              <a href="#" class="btn btn-danger btn-xs btn-delete"><i class="fa fa-trash"></i></a>         
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <div class="alert alert-danger" role="alert">
-                                        Data tidak valid!
-                                    </div>
-                                 @endforelse --}}
-                            </tbody>
-                        </table>
+                {{-- <div class="col-sm-6 col-xs-12 text-right">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success">Completed</button>
+                        <button type="button" class="btn btn-warning">Pending</button>
+                        <button type="button" class="btn btn-primary">All</button>
                     </div>
-                   </div>
-                  </div>
-                 </div>
-               </div>
+                </div> --}}
             </div>
+        </div>
+        <div class="panel-body table-responsive">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="w-12"><i class="fa fa-wrench"></i></th>
+                            <th>Nama Produk</th>
+                            <th>Ukuran</th>
+                            <th>Stok</th>
+                            <th>Harga</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        {{-- @foreach ($customers as $item) --}}
+                            <tr>
+                                <td>
+                                        <a href="#" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                        <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                </td>
+                                <td>Batik 1</td>
+                                <td>X</td>
+                                <td>87</td>
+                                <td>Rp. 150.000</td>
+                                {{-- <td>{{ $item ->nama}}</td>
+                                <td>{{ $item ->email}}</td>
+                                <td>{{ $item ->alamat}}</td>
+                                <td>{{ $item ->telepon}}</td> --}}
+                            </tr>
+                        {{-- @endforeach --}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                {{-- <div class="col col-sm-6 col-xs-6">Data Per Halaman : <b>{{ $customers->perPage() }}</b> Dari : <b>{{ $customers->total() }}</b> Data Customers</div> --}}
+                <div class="col-sm-6 col-xs-6">
+                    <ul class="pagination hidden-xs pull-right">
+                        {{-- {{ $customers->links() }} --}}
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script>

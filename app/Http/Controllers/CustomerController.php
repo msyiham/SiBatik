@@ -16,7 +16,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = Customer::all();
+        $customers = Customer::paginate(3);
         return view('admin\isi.Customer',['customers'=>$customers]);
     }
 

@@ -72,7 +72,7 @@
     border-radius: 0;
 }
 .panel .panel-footer .col{ line-height: 30px; }
-.pagination{ margin: 0; }
+/* .pagination{ margin: 0; }
 .pagination li a{
     color: #555;
     background-color: transparent;
@@ -86,7 +86,6 @@
     padding: 0;
     margin: 0 3px;
     border-radius: 0;
-    transition: all 0.3s ease 0s;
 }
 .pagination li a:hover,
 .pagination li a:focus,
@@ -95,13 +94,13 @@
     color: #fff;
     background-color: #555;
     border-color: #555;
-}
-.pagination li:first-child a,
+} */
+/* .pagination li:first-child a,
 .pagination li:last-child a{
     border-radius: 0;
     width: auto;
     padding: 0 10px;
-}
+} */
 @media only screen and (max-width:767px){
     .panel .panel-heading .title{
         text-align: center;
@@ -140,8 +139,8 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th class="w-4"><input type="checkbox"></th>
-                                    <th class="w-12"><i class="fa fa-wrench"></i></th>
+                                    {{-- <th class="w-4"><input type="checkbox"></th>
+                                    <th class="w-12"><i class="fa fa-wrench"></i></th> --}}
                                     <th>Nama</th>
                                     <th>Email</th>
                                     <th>Nomor Telepon</th>
@@ -151,13 +150,13 @@
                             <tbody>
                                 @foreach ($customers as $item)
                                     <tr>
-                                        <td><input type="checkbox"></td>
+                                        {{-- <td><input type="checkbox"></td>
                                         <td>
                                             <ul class="action-list">
                                                 <li><a href="#" class="btn btn-default"><i class="fa fa-edit"></i></a></li>
                                                 <li><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></li>
                                             </ul>
-                                        </td>
+                                        </td> --}}
                                         <td>{{ $item ->nama}}</td>
                                         <td>{{ $item ->email}}</td>
                                         <td>{{ $item ->alamat}}</td>
@@ -170,18 +169,11 @@
                 </div>
                 <div class="panel-footer">
                     <div class="row">
-                        <div class="col col-sm-6 col-xs-6">showing <b>5</b> out of <b>25</b> entries</div>
+                        <div class="col col-sm-6 col-xs-6">Data Per Halaman : <b>{{ $customers->perPage() }}</b> Dari : <b>{{ $customers->total() }}</b> Data Customers</div>
                         <div class="col-sm-6 col-xs-6">
                             <ul class="pagination hidden-xs pull-right">
-                                <li><a href="#">«</a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">»</a></li>
+                                {{ $customers->links() }}
                             </ul>
-
                         </div>
                     </div>
                 </div>

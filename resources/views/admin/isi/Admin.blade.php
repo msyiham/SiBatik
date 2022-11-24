@@ -11744,7 +11744,7 @@ body {
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a> --}}
                             <a class="nav-link" href="/Customer" >
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 Customer
                             </a>
                             {{-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -11753,7 +11753,7 @@ body {
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a> --}}
                             <a class="nav-link" href="/Produk" >
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-shirt"></i></div>
                                 Product
                             </a>
                             {{-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -11761,10 +11761,6 @@ body {
                                 Input Product
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a> --}}
-                            <a class="nav-link" href="/input" >
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Input Product
-                            </a>
                             <div class="sb-sidenav-menu-heading"></div>
                     </div>
                     <div class="sb-sidenav-footer">
