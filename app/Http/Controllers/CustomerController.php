@@ -16,7 +16,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $customers = Customer::all();
+        return view('admin\isi.Customer',['customers'=>$customers]);
     }
 
     /**
@@ -79,7 +80,7 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //
+        
     }
 
     /**

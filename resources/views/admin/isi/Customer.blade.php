@@ -117,110 +117,56 @@
 }
 </style>
 <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css /> -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-offset-1 col-md-10">
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-offset-1 col-md-11">
             <div class="panel">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col col-sm-6 col-xs-12">
                             <h4 class="title">Data List</h4>
                         </div>
-                        <div class="col-sm-6 col-xs-12 text-right">
+                        {{-- <div class="col-sm-6 col-xs-12 text-right">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-success">Completed</button>
                                 <button type="button" class="btn btn-warning">Pending</button>
                                 <button type="button" class="btn btn-primary">All</button>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="panel-body table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th class="w-4"><input type="checkbox"></th>
-                                <th class="w-12"><i class="fa fa-wrench"></i></th>
-                                <th class="w-4 hidden-xs">#</th>
-                                <th>Full Name</th>
-                                <th>Age</th>
-                                <th>Job Title</th>
-                                <th>City</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><input type="checkbox"></td>
-                                <td>
-                                    <ul class="action-list">
-                                        <li><a href="#" class="btn btn-default"><i class="fa fa-edit"></i></a></li>
-                                        <li><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></li>
-                                    </ul>
-                                </td>
-                                <td class="hidden-xs">1</td>
-                                <td>Vincent Williamson</td>
-                                <td>31</td>
-                                <td>iOS Developer</td>
-                                <td>Sinaai-Waas</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox"></td>
-                                <td>
-                                    <ul class="action-list">
-                                        <li><a href="#" class="btn btn-default"><i class="fa fa-edit"></i></a></li>
-                                        <li><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></li>
-                                    </ul>
-                                </td>
-                                <td class="hidden-xs">2</td>
-                                <td>Taylor Reyes</td>
-                                <td>22</td>
-                                <td>UI/UX Developer</td>
-                                <td>Baileux</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox"></td>
-                                <td>
-                                    <ul class="action-list">
-                                        <li><a href="#" class="btn btn-default"><i class="fa fa-edit"></i></a></li>
-                                        <li><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></li>
-                                    </ul>
-                                </td>
-                                <td class="hidden-xs">3</td>
-                                <td>Justin Block</td>
-                                <td>26</td>
-                                <td>Frontend Developer</td>
-                                <td>Overland Park</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox"></td>
-                                <td>
-                                    <ul class="action-list">
-                                        <li><a href="#" class="btn btn-default"><i class="fa fa-edit"></i></a></li>
-                                        <li><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></li>
-                                    </ul>
-                                </td>
-                                <td class="hidden-xs">4</td>
-                                <td>Sean Guzman</td>
-                                <td>26</td>
-                                <td>Web Designer</td>
-                                <td>Gloucester</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox"></td>
-                                <td>
-                                    <ul class="action-list">
-                                        <li><a href="#" class="btn btn-default"><i class="fa fa-edit"></i></a></li>
-                                        <li><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></li>
-                                    </ul>
-                                </td>
-                                <td class="hidden-xs">5</td>
-                                <td>Keith Carter</td>
-                                <td>20</td>
-                                <td>Graphic Designer</td>
-                                <td>Oud-Turnhout</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="w-4"><input type="checkbox"></th>
+                                    <th class="w-12"><i class="fa fa-wrench"></i></th>
+                                    <th>Nama</th>
+                                    <th>Email</th>
+                                    <th>Nomor Telepon</th>
+                                    <th>Alamat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($customers as $item)
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>
+                                            <ul class="action-list">
+                                                <li><a href="#" class="btn btn-default"><i class="fa fa-edit"></i></a></li>
+                                                <li><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></li>
+                                            </ul>
+                                        </td>
+                                        <td>{{ $item ->nama}}</td>
+                                        <td>{{ $item ->email}}</td>
+                                        <td>{{ $item ->alamat}}</td>
+                                        <td>{{ $item ->telepon}}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="panel-footer">
                     <div class="row">

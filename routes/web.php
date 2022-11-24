@@ -41,7 +41,7 @@ Route::post('/login', [App\Http\Controllers\LoginController::class,'authenticate
 //halaman admin
 Route::get('/admin',[App\Http\Controllers\AdminController::class,'admin']);
 Route::get('/Dashbord', [App\Http\Controllers\AdminController::class,'dashbord']);
-Route::get('/Customer', [App\Http\Controllers\AdminController::class,'customer']);
+// Route::get('/Customer', [App\Http\Controllers\AdminController::class,'customer']);
 Route::get('/Produk', [App\Http\Controllers\AdminController::class,'product']);
 Route::get('/input', [App\Http\Controllers\AdminController::class,'inputproduct']);
 
@@ -51,4 +51,6 @@ Route::get('/customers/regis', [CustomerController::class,'create'])
 ->name('customers.create');
 Route::post('/customers', [CustomerController::class,'store'])
 ->name('customers.store');
+Route::get('/Customer', [CustomerController::class,'index'])
+->name('customers.index');
 // Route::resource('customers', CustomerController::class);

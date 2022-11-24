@@ -317,11 +317,11 @@ input[type=password]:placeholder {
         @enderror
       </span>
       <input id="password" class="form-control fadeIn third" placeholder="password" name="password" type="password">
-      <span>
+      
         @error('password')
-          <div class="text-danger">{{ $message }}</div>
+          <div class="alert text-danger">{{ $message }}</div>
         @enderror
-      </span>
+      
       <input type="submit" class="fadeIn fourth mt-3" value="Log In">
         <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/customers/regis"
             class="link-danger">Register</a></p>
