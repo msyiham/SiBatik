@@ -124,7 +124,7 @@
             <h3 class="mt-3"><i class="fa-solid fa-shirt"></i> Produk </h3>
         </div>
         <div class="col">
-            <a href="/input" class="btn btn-primary">
+            <a href="{{ route('products.create') }}" class="btn btn-primary">
                 <i class="fa-solid fa-plus"></i>
                 Tambah Produk
             </a>

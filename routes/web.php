@@ -6,6 +6,7 @@ use App\Http\Controllers\BuyController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,8 +43,8 @@ Route::post('/login', [App\Http\Controllers\LoginController::class,'authenticate
 Route::get('/admin',[App\Http\Controllers\AdminController::class,'admin']);
 Route::get('/Dashbord', [App\Http\Controllers\AdminController::class,'dashbord']);
 // Route::get('/Customer', [App\Http\Controllers\AdminController::class,'customer']);
-Route::get('/Produk', [App\Http\Controllers\AdminController::class,'product']);
-Route::get('/input', [App\Http\Controllers\AdminController::class,'inputproduct']);
+// Route::get('/Produk', [App\Http\Controllers\AdminController::class,'product']);
+// Route::get('/input', [App\Http\Controllers\AdminController::class,'inputproduct']);
 
 
 //crud customer
@@ -54,3 +55,11 @@ Route::post('/customers', [CustomerController::class,'store'])
 Route::get('/Customer', [CustomerController::class,'index'])
 ->name('customers.index');
 // Route::resource('customers', CustomerController::class);
+
+//crud product
+Route::get('/Produk', [ProductController::class,'index'])
+->name('products.index');
+Route::get('/product/create', [ProductController::class,'create'])
+->name('products.create');
+Route::post('/product', [ProductController::class,'store'])
+->name('products.store');
