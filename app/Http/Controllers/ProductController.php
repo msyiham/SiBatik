@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -25,7 +25,7 @@ class ProductController extends Controller
         $products = Product::all();
         return view('user.page.shop',['products'=>$products]);
     }
-    public function buy()
+    public function buy(Product $products)
     {
         return view('user.page.buy',['products'=>$products]);
     }

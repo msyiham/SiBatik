@@ -311,7 +311,7 @@
     <div class="container-fluid" style=" background-color: #fff; padding: 11px;">
         <div class="row">
             <div class="col-lg-4 order-lg-2 order-1">
-                <div class="image_selected"><img src="images/batik1.png" alt=""></div>
+                <div class="image_selected"><img src="{{ $products->gambar }}" alt=""></div>
             </div>
             <div class="col-lg-6 order-3">
                 <div class="product_description">

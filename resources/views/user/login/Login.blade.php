@@ -305,9 +305,9 @@ input[type=password]:placeholder {
     <!-- Login Form -->
     <form action="{{ route('proses.login') }}" method="POST">
       @csrf
-      @if (session()->has('loginEror'))
+      @if (session()->has('error'))
         <div class="alert alert-danger">
-            {{ session()->get('loginEror') }}
+            {{ session()->get('error') }}
         </div>
       @endif
       <input type="text" id="email" class="fadeIn second" name="email" placeholder="email">

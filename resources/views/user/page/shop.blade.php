@@ -11295,9 +11295,6 @@ textarea.form-control-lg {
   @forelse ($products as $item)
   <div class="col-md-3 mb-5">
     <div class="card h-100">
-        <!-- Sale badge-->
-        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-        <!-- Product image-->
         <img class="card-img-top" src="{{ $item->gambar }}" alt="..." />
         <!-- Product details-->
         <div class="card-body p-4">
@@ -11318,7 +11315,7 @@ textarea.form-control-lg {
         </div>
         <!-- Product actions-->
         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ route('buy',['products' => $products->id]) }}">Beli</a></div>
+            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ URL::to('/') }}{{ url('/buy',['products' => $item->id]) }}">Beli</a></div>
         </div>
     </div>
   </div>

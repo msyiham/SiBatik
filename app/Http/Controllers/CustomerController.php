@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
@@ -16,8 +16,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = Customer::paginate(3);
-        return view('admin\isi.Customer',['customers'=>$customers]);
+        $users = User::paginate(3);
+        return view('admin\isi.Customer',['customers'=>$users]);
     }
 
     /**
@@ -41,7 +41,7 @@ class CustomerController extends Controller
         $validator = validator::make($request->all(),
         [
                 'nama' => 'required|max:255',
-                'email' => 'required|email|unique:customers',
+                'email' => 'required|email|unique:users',
                 'telepon' => 'required|min:11|max:12',
                 'alamat' => 'required',
                 'password' => 'required|size:6'
@@ -60,7 +60,7 @@ class CustomerController extends Controller
             return redirect('/customers/regis')->withErrors($validator)->withInput();
         }else {
             $hash = bcrypt($request->password);
-            Customer::create([
+            User::create([
                 "nama" => $request->nama,
                 "email" => $request->email,
                 "telepon" =>$request->telepon,
@@ -75,10 +75,10 @@ class CustomerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
+    public function show(User $user)
     {
         
     }
@@ -86,10 +86,10 @@ class CustomerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function edit(Customer $customer)
+    public function edit(User $user)
     {
         //
     }
@@ -98,10 +98,10 @@ class CustomerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    public function update(Request $request, User $User)
     {
         //
     }
@@ -109,10 +109,10 @@ class CustomerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
+    public function destroy(User $customer)
     {
         //
     }

@@ -15,16 +15,23 @@ class LoginController extends Controller
     }
     public function authenticate(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email:dns'],
-            'password' => ['required'],
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
         ]);
-        
+   
+        $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
             return redirect()->intended('home');
         }
- 
-        return back()->with('loginEror', 'login gagal');
+        else{
+            $request->session()->flash('error', 'Data tidak ditemukan!');
+            return redirect("/login");
+        }
+    }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect("/login");
     }
 }

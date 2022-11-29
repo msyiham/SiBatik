@@ -13,32 +13,22 @@
                       <table class="table table-user-information text-white">
                           <tbody>
   
-                          <tr>
+                            <tr>
                               <td>Nama Lengkap</td>
-                              <td>-----------</td>
-                          </tr>
-                          <tr>
-                              <td>Tanggal Lahir</td>
-                              <td>--/--/----</td>
-                          </tr>
-                      
-                              <tr>
-                                  <tr>
-                              <td>Jenis Kelamin</td>
-                              <td>-----</td>
-                          </tr>
-                              <tr>
+                              <td>{{ $user->nama }}</td>
+                            </tr>
+                            <tr>
                               <td>Alamat Lengkap</td>
-                              <td>-------</td>
-                          </tr>
-                          <tr>
+                              <td>{{ $user->alamat }}</td>
+                            </tr>
+                            <tr>
                               <td>Email</td>
-                              <td><a href="mailto:info@support.com">customer@gmail.com</a></td>
-                          </tr>
+                              <td><a href="{{ $user->email }}">{{ $user->email }}</a></td>
+                            </tr>
+                            <tr>
                               <td>No HP</td>
-                              <td>555-4567-890(Mobile)</td>
-                              
-                          </tr>
+                              <td>{{ $user->telepon }}(Mobile)</td>
+                            </tr>
                           </tbody>
                       </table>
                       <div class="panel-footer">

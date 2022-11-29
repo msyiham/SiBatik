@@ -7,6 +7,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,18 +28,21 @@ use App\Http\Controllers\ProductController;
 Route::get('/home', function () {
     return view('user.page.home');
 });
-Route::get('/shop', [App\Http\Controllers\ProductController::class,'shop']);
+Route::get('/shop', [App\Http\Controllers\ProductController::class,'shop'])
+    ->middleware('auth')->name('shop');;
 Route::get('/buy/{products}', [App\Http\Controllers\ProductController::class,'buy'])
-->name('buy');
+    ->name('buy');
 Route::get('/about', [App\Http\Controllers\AboutController::class,'about']);
-Route::get('/profil', function () {
-    return view('user.page.profil');
-});
+Route::get('/profil', [App\Http\Controllers\ProfilController::class, 'index'])
+    ->name('profile.index');
 
 //Login
-Route::get('/login', [App\Http\Controllers\LoginController::class,'index']);
+Route::get('/login', [App\Http\Controllers\LoginController::class,'index'])
+    ->name('login');
+Route::get('/logout', [App\Http\Controllers\LoginController::class,'logout'])
+    ->name('logout');
 Route::post('/login', [App\Http\Controllers\LoginController::class,'authenticate'])
-->name('proses.login');
+    ->name('proses.login');
 
 //halaman admin
 Route::get('/admin',[App\Http\Controllers\AdminController::class,'admin']);
@@ -50,17 +54,17 @@ Route::get('/Dashbord', [App\Http\Controllers\AdminController::class,'dashbord']
 
 //crud customer
 Route::get('/customers/regis', [CustomerController::class,'create'])
-->name('customers.create');
+    ->name('customers.create');
 Route::post('/customers', [CustomerController::class,'store'])
-->name('customers.store');
+    ->name('customers.store');
 Route::get('/Customer', [CustomerController::class,'index'])
-->name('customers.index');
+    ->name('customers.index');
 // Route::resource('customers', CustomerController::class);
 
 //crud product
 Route::get('/Produk', [ProductController::class,'index'])
-->name('products.index');
+    ->name('products.index');
 Route::get('/product/create', [ProductController::class,'create'])
-->name('products.create');
+    ->name('products.create');
 Route::post('/product', [ProductController::class,'store'])
-->name('products.store');
+    ->name('products.store');
