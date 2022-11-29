@@ -315,10 +315,11 @@
             </div>
             <div class="col-lg-6 order-3">
                 <div class="product_description">
-                    <div class="product_name">Batik 1</div>
-                    <div> <span class="product_price">Rp. 50.000</span>  </div>
+                    <div class="product_name">{{ $products->nama_produk }}</div>
+                    <div> <span class="product_price">{{ $products->harga }}</span>  </div>
                     <hr class="singleline">
-                    <div> <span class="product_info">Keterangan Barang<span></div>
+                    <div> <span class="product_info">{{ $products->keterangan }}<span></div>
+                    <div> <span class="product_info">{{ $products->stok }}<span></div>
                     <div>
                         <div class="row" style="margin-top: 15px;">
                             <div class="col-xs-6" style="margin-left: 15px;"> <span class="product_options">Ukuran</span><br> <button class="btn btn-primary btn-sm">S</button> <button class="btn btn-primary btn-sm">M</button> <button class="btn btn-primary btn-sm">L</button> <button class="btn btn-primary btn-sm">XL</button> </div>

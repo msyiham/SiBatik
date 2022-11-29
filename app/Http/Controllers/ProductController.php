@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -18,7 +19,16 @@ class ProductController extends Controller
         $products = Product::paginate(3);
         return view('admin.isi.Product',['products'=>$products]);
     }
-
+    
+    public function shop()
+    {
+        $products = Product::all();
+        return view('user.page.shop',['products'=>$products]);
+    }
+    public function buy()
+    {
+        return view('user.page.buy',['products'=>$products]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -37,7 +47,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {  
-        $validator = validator::make($request->all(),
+        $validator = Validator::make($request->all(),
         [
             'nama_produk' => 'required',
             'stok' => 'required',
@@ -59,7 +69,7 @@ class ProductController extends Controller
             $extFile = $request->gambar->getClientOriginalExtension();
             $namaFile = 'product-'.time().".".$extFile;
             $path = $request->gambar->move('image',$namaFile);
-            $pathBaru = asset('image/'.$namaFile);
+            $pathBaru = asset('images/'.$namaFile);
             Product::create([
                 "nama_produk" => $request->nama_produk,
                 "stok" => $request->stok,

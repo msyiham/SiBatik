@@ -27,8 +27,9 @@ use App\Http\Controllers\ProductController;
 Route::get('/home', function () {
     return view('user.page.home');
 });
-Route::get('/shop', [App\Http\Controllers\ProdukController::class,'index']);
-Route::get('/buy', [App\Http\Controllers\BuyController::class,'index']);
+Route::get('/shop', [App\Http\Controllers\ProductController::class,'shop']);
+Route::get('/buy/{products}', [App\Http\Controllers\ProductController::class,'buy'])
+->name('buy');
 Route::get('/about', [App\Http\Controllers\AboutController::class,'about']);
 Route::get('/profil', function () {
     return view('user.page.profil');

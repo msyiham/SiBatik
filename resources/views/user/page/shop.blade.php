@@ -11292,18 +11292,18 @@ textarea.form-control-lg {
 }
 </style>
 <div class="row mt-5 mb-5">
-  @forelse ($hmm as $item)
+  @forelse ($products as $item)
   <div class="col-md-3 mb-5">
     <div class="card h-100">
         <!-- Sale badge-->
         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
         <!-- Product image-->
-        <img class="card-img-top" src="{{ $item ['gambar_barang'] }}" alt="..." />
+        <img class="card-img-top" src="{{ $item->gambar }}" alt="..." />
         <!-- Product details-->
         <div class="card-body p-4">
             <div class="text-center">
                 <!-- Product name-->
-                <h5 class="fw-bolder">{{ $item ['nama_barang'] }}</h5>
+                <h5 class="fw-bolder">{{ $item->nama_produk }}</h5>
                 <!-- Product reviews-->
                 <div class="d-flex justify-content-center small text-warning mb-2">
                     <div class="bi-star-fill"></div>
@@ -11313,12 +11313,12 @@ textarea.form-control-lg {
                     <div class="bi-star-fill"></div>
                 </div>
                 <!-- Product price-->
-                {{ $item ['harga_barang'] }}
+                {{ $item->harga }}
             </div>
         </div>
         <!-- Product actions-->
         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/buy">Beli</a></div>
+            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ route('buy',['products' => $products->id]) }}">Beli</a></div>
         </div>
     </div>
   </div>

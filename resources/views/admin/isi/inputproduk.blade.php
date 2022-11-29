@@ -23,6 +23,13 @@
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="m-2">
+                        <label class="form-label" for="jenis">Jenis</label>
+                        <input class="form-control" type="text" name="jenis">
+                        @error('jenis')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
                     <div class="form-group">
                         <label>Ukuran</label>
                         <div>
