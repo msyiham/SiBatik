@@ -27,12 +27,21 @@
                   </li>
                 </ul>
                 <div class="user_option">
-                  <a href="{{ route('profile.index') }}" class="user_link">
-                    <i class="fa fa-user" aria-hidden="true" title="Profil"></i>
-                  </a>
-                  <a href="{{ route('logout') }}" class="user_link">
-                    <i class="fa fa-sign-out" data-toggle="tooltip" title="Logout" style="padding: 8px"></i>
-                  </a>
+                  @if (!Auth::check())
+                    <a href="{{ route('login') }}" class="user_link">
+                      <i class="fa fa-sign-in" aria-hidden="true" title="Login"></i>
+                    </a>
+                  @endif
+                  @if (Auth::check())
+                    <a href="{{ route('profile.index') }}" class="user_link">
+                      <i class="fa fa-user" aria-hidden="true" title="Profil"></i>
+                    </a>
+                  @endif
+                  @if (Auth::check())
+                    <a href="{{ route('logout') }}" class="user_link">
+                      <i class="fa fa-sign-out" data-toggle="tooltip" title="Logout" style="padding: 8px"></i>
+                    </a> 
+                  @endif
                 </div>
               </div>
             </nav>

@@ -45,19 +45,6 @@
         padding-left: 0px
     }
     
-    .product_quantity {
-        width: 104px;
-        height: 47px;
-        border: solid 1px #e5e5e5;
-        border-radius: 3px;
-        overflow: hidden;
-        padding-left: 8px;
-        padding-top: -4px;
-        padding-bottom: 44px;
-        float: left;
-        margin-right: 22px;
-        margin-bottom: 11px
-    }
     
     .order_info {
         margin-top: 18px
@@ -173,10 +160,6 @@
         box-sizing: border-box
     }
     
-    ul {
-        list-style: none;
-        margin-bottom: 0px
-    }
     
     .single_product {
         padding-top: 16px;
@@ -226,123 +209,53 @@
         margin-top: 16px
     }
     
-    .product_quantity {
-        width: 182px;
-        height: 50px;
-        border: solid 1px #e5e5e5;
-        border-radius: 5px;
-        overflow: hidden;
-        padding-left: 25px;
-        float: left;
-        margin-right: 30px
-    }
-    
-    .product_quantity span {
-        display: block;
-        height: 50px;
-        font-size: 16px;
-        font-weight: 300;
-        color: rgba(0, 0, 0, 0.5);
-        line-height: 50px;
-        float: left
-    }
-    
-    .product_quantity input {
-        display: block;
-        width: 30px;
-        height: 50px;
-        border: none;
-        outline: none;
-        font-size: 16px;
-        font-weight: 300;
-        color: rgba(0, 0, 0, 0.5);
-        text-align: left;
-        padding-left: 9px;
-        line-height: 50px;
-        float: left
-    }
-    
-    .quantity_buttons {
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 100%;
-        width: 29px;
-        border-left: solid 1px #e5e5e5
-    }
-    
-    .quantity_inc,
-    .quantity_dec {
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        height: 50%;
-        cursor: pointer
-    }
-    
-    .quantity_control i {
-        font-size: 11px;
-        color: rgba(0, 0, 0, 0.3);
-        pointer-events: none
-    }
-    
-    .quantity_control:active {
-        border: solid 1px rgba(14, 140, 228, 0.2)
-    }
-    
-    .quantity_inc {
-        padding-bottom: 2px;
-        justify-content: flex-end;
-        border-top-right-radius: 5px
-    }
-    
-    .quantity_dec {
-        padding-top: 2px;
-        justify-content: flex-start;
-        border-bottom-right-radius: 5px
-    }
 </style>
 <div class="single_product">
-    <div class="container-fluid" style=" background-color: #fff; padding: 11px;">
+    <div class="container-fluid" style=" background-color: rgb(136, 131, 131); padding: 11px;">
         <div class="row">
             <div class="col-lg-4 order-lg-2 order-1">
                 <div class="image_selected"><img src="{{ $products->gambar }}" alt=""></div>
             </div>
             <div class="col-lg-6 order-3">
-                <div class="product_description">
-                    <div class="product_name">{{ $products->nama_produk }}</div>
-                    <div> <span class="product_price">{{ $products->harga }}</span>  </div>
-                    <hr class="singleline">
-                    <div> <span class="product_info">{{ $products->keterangan }}<span></div>
-                    <div> <span class="product_info">{{ $products->stok }}<span></div>
-                    <div>
-                        <div class="row" style="margin-top: 15px;">
-                            <div class="col-xs-6" style="margin-left: 15px;"> <span class="product_options">Ukuran</span><br> <button class="btn btn-primary btn-sm">S</button> <button class="btn btn-primary btn-sm">M</button> <button class="btn btn-primary btn-sm">L</button> <button class="btn btn-primary btn-sm">XL</button> </div>
-                        </div>
-                    </div>
-                    <hr class="singleline">
-                    <div class="order_info d-flex flex-row">
-                        <form action="#">
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6" style="margin-left: 13px;">
-                            <div class="product_quantity"> <span>Jumlah: </span> <input id="quantity_input" type="text" pattern="[0-9]*" value="1">
-                                <div class="quantity_buttons">
-                                    <div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fas fa-chevron-up"></i></div>
-                                    <div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fas fa-chevron-down"></i></div>
+                <form action="{{ route('proses.buy') }}" method="post">
+                    @csrf
+                    <div class="product_description">
+                        <div class="product_name">{{ $products->nama_produk }}</div>
+                        <input type="hidden" name="harga" value="{{ $products->nama_produk }}">
+                        <div> <span class="product_price">Rp. {{ $products->harga }}</span>  </div>
+                        <input type="hidden" name="harga" value="{{ $products->harga }}">
+                        <hr class="singleline">
+                        <div> <span class="product_info">{{ $products->keterangan }}<span></div>
+                        <div><b><span class="">Stok<span></b></div>
+                        <div> <span class="product_info">{{ $products->stok }}<span></div>
+                        <input type="hidden" name="harga" value="{{ $products->stok }}">
+                        <div>
+                            <div class="row" style="margin-top: 15px;">
+                                <div class="col-xs-6">
+                                    <b><span class="">Ukuran</span><br></b>
+                                    <select class="form-control" name="ukuan">
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
+                                        <option value="XL">XL</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-6">
-                            <button type="button" class="btn btn-success shop-button">Beli Sekarang</button>
+                        <hr class="singleline">
+                        <div class="row">
+                            <div class="col-xs-6 ">
+                                    <b><label for="quantity">Jumlah</label></b>
+                                    <input class="form-control" type="number" name="quantity" pattern="[0-9]*" min="1" value="1" style="width: 100px;">    
+                            </div>
+                            <div class="col-xs-6 mt-4">
+                                @if(Auth::check())
+                                    <button type="sumbit" class="btn btn-success shop-button">Beli Sekarang</button>
+                                @endif
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

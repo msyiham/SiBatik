@@ -29,7 +29,7 @@ Route::get('/home', function () {
     return view('user.page.home');
 });
 Route::get('/shop', [App\Http\Controllers\ProductController::class,'shop'])
-    ->middleware('auth')->name('shop');;
+    ->name('shop');;
 Route::get('/buy/{products}', [App\Http\Controllers\ProductController::class,'buy'])
     ->name('buy');
 Route::get('/about', [App\Http\Controllers\AboutController::class,'about']);

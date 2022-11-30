@@ -69,7 +69,7 @@ class ProductController extends Controller
             $extFile = $request->gambar->getClientOriginalExtension();
             $namaFile = 'product-'.time().".".$extFile;
             $path = $request->gambar->move('image',$namaFile);
-            $pathBaru = asset('images/'.$namaFile);
+            $pathBaru = asset('image/'.$namaFile);
             Product::create([
                 "nama_produk" => $request->nama_produk,
                 "stok" => $request->stok,

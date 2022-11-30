@@ -160,32 +160,28 @@
                         </tr>
                     </thead>
                     <tbody class="text-center">
-                        {{-- @foreach ($customers as $item) --}}
+                        @foreach ($products as $item)
                             <tr>
                                 <td>
                                         <a href="#" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                                         <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
-                                <td>Batik 1</td>
-                                <td>X</td>
-                                <td>87</td>
-                                <td>Rp. 150.000</td>
-                                {{-- <td>{{ $item ->nama}}</td>
-                                <td>{{ $item ->email}}</td>
-                                <td>{{ $item ->alamat}}</td>
-                                <td>{{ $item ->telepon}}</td> --}}
+                                <td>{{ $item ->nama_produk}}</td>
+                                <td>{{ $item ->ukuran}}</td>
+                                <td>{{ $item ->stok}}</td>
+                                <td>{{ $item ->harga}}</td>
                             </tr>
-                        {{-- @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
         <div class="panel-footer">
             <div class="row">
-                {{-- <div class="col col-sm-6 col-xs-6">Data Per Halaman : <b>{{ $customers->perPage() }}</b> Dari : <b>{{ $customers->total() }}</b> Data Customers</div> --}}
+                <div class="col col-sm-6 col-xs-6">Data Per Halaman : <b>{{ $products->perPage() }}</b> Dari : <b>{{ $products->total() }}</b> Data Product</div>
                 <div class="col-sm-6 col-xs-6">
                     <ul class="pagination hidden-xs pull-right">
-                        {{-- {{ $customers->links() }} --}}
+                        {{ $products->links() }}
                     </ul>
                 </div>
             </div>
