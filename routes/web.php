@@ -8,7 +8,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfilController;
-
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,3 +68,17 @@ Route::get('/product/create', [ProductController::class,'create'])
     ->name('products.create');
 Route::post('/product', [ProductController::class,'store'])
     ->name('products.store');
+
+
+Route::group(["prefix" => "cart" , "as" => "cart."],function(){
+    Route::get('/', [CartController::class,'index'])
+    ->name('index');
+    Route::post('/addCart', [CartController::class,'addCart'])
+    ->name('addCart');
+    Route::post('/updateCart', [CartController::class,'updateCart'])
+    ->name('updateCart');
+    Route::post('/removeCart', [CartController::class,'removeCart'])
+    ->name('removeCart');
+    Route::get('/clearAllCart', [CartController::class,'clearAllCart'])
+    ->name('clearAllCart');
+});

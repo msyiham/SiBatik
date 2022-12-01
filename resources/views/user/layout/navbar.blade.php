@@ -25,6 +25,9 @@
                   <li class="nav-item @if(request()->is('/about')) active @endif">
                     <a class="nav-link" href="/about">Tentang Kami</a>
                   </li>
+                  <li class="nav-item @if(request()->is('/cart')) active @endif">
+                    <a class="nav-link nav-cart" href="/cart">cart <span class="nav-cart-total">{{ Cart::getTotalQuantity()}}</span> </a>
+                  </li>
                 </ul>
                 <div class="user_option">
                   @if (!Auth::check())

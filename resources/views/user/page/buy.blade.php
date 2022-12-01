@@ -217,7 +217,7 @@
                 <div class="image_selected"><img src="{{ $products->gambar }}" alt=""></div>
             </div>
             <div class="col-lg-6 order-3">
-                <form action="{{ route('proses.buy') }}" method="post">
+                <form action="#" method="post">
                     @csrf
                     <div class="product_description">
                         <div class="product_name">{{ $products->nama_produk }}</div>
@@ -233,7 +233,7 @@
                             <div class="row" style="margin-top: 15px;">
                                 <div class="col-xs-6">
                                     <b><span class="">Ukuran</span><br></b>
-                                    <select class="form-control" name="ukuan">
+                                    <select class="form-control" name="ukuran">
                                         <option value="S">S</option>
                                         <option value="M">M</option>
                                         <option value="L">L</option>
@@ -246,11 +246,11 @@
                         <div class="row">
                             <div class="col-xs-6 ">
                                     <b><label for="quantity">Jumlah</label></b>
-                                    <input class="form-control" type="number" name="quantity" pattern="[0-9]*" min="1" value="1" style="width: 100px;">    
+                                    <input class="form-control" type="number" name="qty" pattern="[0-9]*" min="1" value="1" style="width: 100px;">    
                             </div>
                             <div class="col-xs-6 mt-4">
                                 @if(Auth::check())
-                                    <button type="sumbit" class="btn btn-success shop-button">Beli Sekarang</button>
+                                    <button type="button" class="btn btn-success shop-button btn-buy-now">Beli Sekarang</button>
                                 @endif
                             </div>
                         </div>
@@ -260,4 +260,38 @@
         </div>
     </div>
 </div>
+
+<form class="d-none" method="post" id="frmCart" action="{{ route('cart.addCart') }}">
+    @csrf
+    <input type="hidden" name="product_id">
+    <input type="hidden" name="size">
+    <input type="hidden" name="name">
+    <input type="hidden" name="price">
+    <input type="hidden" name="image">
+    <input type="hidden" name="quantity">
+</form>
+@endsection
+
+@section("script")
+<script>
+    $(function(){
+        $(document).on("click",".btn-buy-now",function(){
+            let product_id = '{{ $products->id }}';
+            let name = '{{ $products->nama_produk }}';
+            let price = '{{ $products->harga }}';
+            let image = '{{ $products->gambar }}';
+            let quantity = $('input[name="qty"]').val();
+            let size = $('select[name="size"]').val();
+
+            $('#frmCart').find('input[name="product_id"]').val(product_id);
+            $('#frmCart').find('input[name="name"]').val(name);
+            $('#frmCart').find('input[name="price"]').val(price);
+            $('#frmCart').find('input[name="image"]').val(image);
+            $('#frmCart').find('input[name="quantity"]').val(quantity);
+            $('#frmCart').find('input[name="size"]').val(size);
+
+            $("#frmCart").submit();
+        })
+    })
+</script>
 @endsection

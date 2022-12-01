@@ -26,6 +26,21 @@
     <link href="{{ URL::to('/') }}/css/style.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="{{ URL::to('/') }}/css/responsive.css" rel="stylesheet" />
+    <style>
+      .nav-cart{
+        position: relative;
+      }
+      .nav-cart-total{
+        color: white;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: brown;
+        border-radius: 200px !important;
+        padding-right: 3px;
+        padding-left: 3px;
+      }
+    </style>
 </head>
 <body>
     @include('user.layout.navbar')
@@ -49,5 +64,6 @@
     <!-- Google Map -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
     <!-- End Google Map -->
+    @yield("script")
 </body>
 </html>
