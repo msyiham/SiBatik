@@ -31,6 +31,7 @@
         position: relative;
       }
       .nav-cart-total{
+        font-size: 9pt;
         color: white;
         position: absolute;
         right: 0;

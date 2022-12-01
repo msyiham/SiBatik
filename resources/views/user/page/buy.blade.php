@@ -230,7 +230,7 @@
                         <div> <span class="product_info">{{ $products->stok }}<span></div>
                         <input type="hidden" name="harga" value="{{ $products->stok }}">
                         <div>
-                            <div class="row" style="margin-top: 15px;">
+                            <div class="row">
                                 <div class="col-xs-6">
                                     <b><span class="">Ukuran</span><br></b>
                                     <select class="form-control" name="ukuran">
@@ -246,7 +246,7 @@
                         <div class="row">
                             <div class="col-xs-6 ">
                                     <b><label for="quantity">Jumlah</label></b>
-                                    <input class="form-control" type="number" name="qty" pattern="[0-9]*" min="1" value="1" style="width: 100px;">    
+                                    <input class="form-control" type="number" name="qty" pattern="[0-9]*" min="1" value="1" style="width: 80px;">    
                             </div>
                             <div class="col-xs-6 mt-4">
                                 @if(Auth::check())
