@@ -13,7 +13,6 @@ class CartController extends Controller
         return view('user.page.cart', compact('cartItems'));
     }
 
-
     public function addCart(Request $request)
     {
         \Cart::add([

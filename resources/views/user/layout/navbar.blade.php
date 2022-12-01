@@ -16,18 +16,20 @@
     
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav  mx-auto ">
-                  <li class="nav-item @if(request()->is('/home')) active @endif">
-                    <a class="nav-link @if(request()->is('/home')) active @endif" href="/home">Beranda<span class="sr-only">(current)</span></a>
+                  <li class="nav-item @if(request()->is('home')) active @endif">
+                    <a class="nav-link" href="/home">Beranda<span class="sr-only">(current)</span></a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link @if(request()->is('/shop')) active @endif" href="{{ route('shop') }}">Belanja </a>
+                  <li class="nav-item @if(request()->is('shop')) active @endif">
+                    <a class="nav-link" href="{{ route('shop') }}">Belanja </a>
                   </li>
-                  <li class="nav-item @if(request()->is('/about')) active @endif">
+                  <li class="nav-item @if(request()->is('about')) active @endif">
                     <a class="nav-link" href="/about">Tentang Kami</a>
                   </li>
+                  @if (Auth::check())
                   <li class="nav-item @if(request()->is('/cart')) active @endif">
                     <a class="nav-link nav-cart" href="/cart">cart <span class="nav-cart-total">{{ Cart::getTotalQuantity()}}</span> </a>
                   </li>
+                  @endif
                 </ul>
                 <div class="user_option">
                   @if (!Auth::check())

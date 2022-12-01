@@ -182,6 +182,9 @@ a:focus {
 .custom_nav-container .navbar-nav .nav-item.active .nav-link {
     color: #ffbe33;
 }
+.user_option .fa.active {
+    color: #ffbe33;
+}
 
 .custom_nav-container .nav_search-btn {
     width: auto;
