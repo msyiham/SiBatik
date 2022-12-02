@@ -60,7 +60,7 @@ class CustomerController extends Controller
             return redirect('/customers/regis')->withErrors($validator)->withInput();
         }else {
             $hash = bcrypt($request->password);
-            User::create([
+            $user = User::create([
                 "nama" => $request->nama,
                 "email" => $request->email,
                 "telepon" =>$request->telepon,
@@ -68,6 +68,8 @@ class CustomerController extends Controller
                 "alamat" =>$request->alamat,
                 "created_at" => now()
             ]);
+
+            $user->assignRole(User::ROLE_USER);
             return redirect('/login');
         }
     }

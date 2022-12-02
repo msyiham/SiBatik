@@ -70,7 +70,8 @@ Route::post('/product', [ProductController::class,'store'])
     ->name('products.store');
 
 
-Route::group(["prefix" => "cart" , "as" => "cart."],function(){
+Route::group(["middleware" => ["auth"]],function(){
+    Route::group(["prefix" => "cart" , "as" => "cart."],function(){
     Route::get('/', [CartController::class,'index'])
     ->name('index');
     Route::post('/addCart', [CartController::class,'addCart'])
@@ -81,4 +82,5 @@ Route::group(["prefix" => "cart" , "as" => "cart."],function(){
     ->name('removeCart');
     Route::get('/clearAllCart', [CartController::class,'clearAllCart'])
     ->name('clearAllCart');
+});
 });

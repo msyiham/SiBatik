@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -22,6 +23,13 @@ class LoginController extends Controller
    
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
+            if(!Auth::user()->hasRole([
+                User::ROLE_USER,
+            ])){
+                Auth::logout();
+                $request->session()->flash('error', 'Anda tidak diperbolehkan mengakses menu ini');
+                return redirect("/login");
+            }
             return redirect()->intended('home');
         }
         else{

@@ -18,6 +18,10 @@
                               <td>{{ $user->nama }}</td>
                             </tr>
                             <tr>
+                              <td>Role</td>
+                              <td>{{ $user->getRoleNames()->implode(", ") }}</td>
+                            </tr>
+                            <tr>
                               <td>Alamat Lengkap</td>
                               <td>{{ $user->alamat }}</td>
                             </tr>
