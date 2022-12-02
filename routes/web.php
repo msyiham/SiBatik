@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\CartController;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,8 +70,7 @@ Route::get('/product/create', [ProductController::class,'create'])
 Route::post('/product', [ProductController::class,'store'])
     ->name('products.store');
 
-
-Route::group(["middleware" => ["auth"]],function(){
+Route::group(["middleware" => ["auth","middleware" => "role:".User::ROLE_USER]],function(){
     Route::group(["prefix" => "cart" , "as" => "cart."],function(){
     Route::get('/', [CartController::class,'index'])
     ->name('index');
