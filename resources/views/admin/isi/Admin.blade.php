@@ -11551,166 +11551,9 @@ body {
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
 }
-
-.dataTable-wrapper .dataTable-container {
-  font-size: 0.875rem;
-}
-
-.dataTable-wrapper.no-header .dataTable-container {
-  border-top: none;
-}
-
-.dataTable-wrapper.no-footer .dataTable-container {
-  border-bottom: none;
-}
-
-.dataTable-top {
-  padding: 0 0 1rem;
-}
-
-.dataTable-bottom {
-  padding: 0;
-}
-
-.dataTable-top > nav:first-child,
-.dataTable-top > div:first-child,
-.dataTable-bottom > nav:first-child,
-.dataTable-bottom > div:first-child {
-  float: left;
-}
-
-.dataTable-top > nav:last-child,
-.dataTable-top > div:last-child,
-.dataTable-bottom > nav:last-child,
-.dataTable-bottom > div:last-child {
-  float: right;
-}
-
-.dataTable-selector {
-  width: auto;
-  display: inline-block;
-  padding-left: 1.125rem;
-  padding-right: 2.125rem;
-  margin-right: 0.25rem;
-}
-
-.dataTable-info {
-  margin: 7px 0;
-}
-
-/* PAGER */
-.dataTable-pagination a:hover {
-  background-color: #e9ecef;
-}
-
-.dataTable-pagination .active a,
-.dataTable-pagination .active a:focus,
-.dataTable-pagination .active a:hover {
-  background-color: #0d6efd;
-}
-
-.dataTable-pagination .ellipsis a,
-.dataTable-pagination .disabled a,
-.dataTable-pagination .disabled a:focus,
-.dataTable-pagination .disabled a:hover {
-  cursor: not-allowed;
-}
-
-.dataTable-pagination .disabled a,
-.dataTable-pagination .disabled a:focus,
-.dataTable-pagination .disabled a:hover {
-  cursor: not-allowed;
-  opacity: 0.4;
-}
-
-.dataTable-pagination .pager a {
-  font-weight: bold;
-}
-
-/* TABLE */
-.dataTable-table {
-  border-collapse: collapse;
-}
-
-.dataTable-table > tbody > tr > td,
-.dataTable-table > tbody > tr > th,
-.dataTable-table > tfoot > tr > td,
-.dataTable-table > tfoot > tr > th,
-.dataTable-table > thead > tr > td,
-.dataTable-table > thead > tr > th {
-  vertical-align: top;
-  padding: 0.5rem 0.5rem;
-}
-
-.dataTable-table > thead > tr > th {
-  vertical-align: bottom;
-  text-align: left;
-  border-bottom: none;
-}
-
-.dataTable-table > tfoot > tr > th {
-  vertical-align: bottom;
-  text-align: left;
-}
-
-.dataTable-table th {
-  vertical-align: bottom;
-  text-align: left;
-}
-
-.dataTable-table th a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.dataTable-sorter {
-  display: inline-block;
-  height: 100%;
-  position: relative;
-  width: 100%;
-  padding-right: 1rem;
-}
-
-.dataTable-sorter::before,
-.dataTable-sorter::after {
-  content: "";
-  height: 0;
-  width: 0;
-  position: absolute;
-  right: 4px;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  opacity: 0.2;
-}
-
-.dataTable-sorter::before {
-  bottom: 4px;
-}
-
-.dataTable-sorter::after {
-  top: 0px;
-}
-
-.asc .dataTable-sorter::after,
-.desc .dataTable-sorter::before {
-  opacity: 0.6;
-}
-
-.dataTables-empty {
-  text-align: center;
-}
-
-.dataTable-top::after,
-.dataTable-bottom::after {
-  clear: both;
-  content: " ";
-  display: table;
-} */
-
-
-    </style>
+</style>
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-danger bg-danger">
+        <nav class="sb-topnav navbar navbar-expand navbar-danger " style="background-color: #102744">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3 text-white" href="index.html">Selamat Datang Admin</a>
             <!-- Sidebar Toggle-->
@@ -11727,13 +11570,13 @@ body {
                 <i class="fa-solid fa-right-from-bracket mr-3 text-white" data-toggle="tooltip" title="Sign Out" style="padding: 8px"></i>
             </ul>
         </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div id="layoutSidenav"  >
+            <div id="layoutSidenav_nav" >
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion" style="background-color: #102744"">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="/Dashbord" >
+                            <a class="nav-link @if(request()->is('Dashbord')) active @endif" href="/Dashbord" >
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -11743,7 +11586,7 @@ body {
                                 Customer
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a> --}}
-                            <a class="nav-link" href="/Customer" >
+                            <a class="nav-link @if(request()->is('Customer')) active @endif" href="/Customer" >
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 Customer
                             </a>
@@ -11752,7 +11595,7 @@ body {
                                 Product
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a> --}}
-                            <a class="nav-link" href="/Produk" >
+                            <a class="nav-link @if(request()->is('Produk')) active @endif" href="/Produk" >
                                 <div class="sb-nav-link-icon"><i class="fas fa-shirt"></i></div>
                                 Product
                             </a>
@@ -11763,7 +11606,7 @@ body {
                             </a> --}}
                             <div class="sb-sidenav-menu-heading"></div>
                     </div>
-                    <div class="sb-sidenav-footer">
+                    <div class="sb-sidenav-footer" style="background-color:#102744">
                         <div class="small">Logged in as:</div>
                         Selamat Datang Admin
                     </div>
