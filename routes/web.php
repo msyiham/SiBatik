@@ -46,7 +46,9 @@ Route::post('/login', [App\Http\Controllers\LoginController::class,'authenticate
     ->name('proses.login');
 
 //halaman admin
-Route::get('/admin',[App\Http\Controllers\AdminController::class,'admin']);
+Route::get('/admin',[App\Http\Controllers\AdminController::class,function(){
+    return redirect("Dashbord");
+}]); 
 Route::get('/Dashbord', [App\Http\Controllers\AdminController::class,'dashbord']);
 // Route::get('/Customer', [App\Http\Controllers\AdminController::class,'customer']);
 // Route::get('/Produk', [App\Http\Controllers\AdminController::class,'product']);
