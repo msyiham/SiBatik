@@ -66,11 +66,13 @@ class CustomerController extends Controller
                 "telepon" =>$request->telepon,
                 "password" =>$hash,
                 "alamat" =>$request->alamat,
+                // "status" => $request->status,
                 "created_at" => now()
             ]);
 
-            $user->assignRole(User::ROLE_USER);
+            // $user->assignRole(User::ROLE_USER);
             return redirect('/login');
+            // return dd($user);
         }
     }
 

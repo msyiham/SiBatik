@@ -25,6 +25,7 @@ class User extends Authenticatable
         'telepon',
         'email',
         'password',
+        // 'status',
     ];
 
     CONST ROLE_ADMIN = "Administrator";

@@ -187,7 +187,16 @@
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
         <input class="form-control @error('password') is-invalid @enderror" value="{{ old('password') }}" placeholder="Password" type="password" name="password">
-    </div> <!-- form-group// -->                                      
+    </div> 
+    <!-- form-group// -->  
+    {{-- <div class="form-group input-group fadeIn six ">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text">  </span>
+		</div>
+        <div>
+          <input class="form-control " placeholder="status" type="name" name="status">
+          </div> --}}
+          {{-- <input class="form-control @error('password') is-invalid @enderror" value="{{ old('password') }}" placeholder="Password" type="password" name="password"> --}}                                
     <div class="form-group fadeIn seven">
         <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
   </div> <!-- form-group// -->      

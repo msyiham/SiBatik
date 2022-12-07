@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
+use App\Models\ProductVarian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
@@ -50,10 +51,7 @@ class ProductController extends Controller
         $validator = Validator::make($request->all(),
         [
             'nama_produk' => 'required',
-            'stok' => 'required',
             'jenis' => 'required',
-            'harga' => 'required',
-            'ukuran' => 'required|in:S,M,L,XL,XXL',
             'keterangan' => 'required',
             'gambar' => 'required|file|mimes:jpg,png|max:5000'
         ],
@@ -70,16 +68,42 @@ class ProductController extends Controller
             $namaFile = 'product-'.time().".".$extFile;
             $path = $request->gambar->move('image',$namaFile);
             $pathBaru = asset('image/'.$namaFile);
-            Product::create([
+            $product = Product::create([
                 "nama_produk" => $request->nama_produk,
-                "stok" => $request->stok,
                 "jenis" =>$request->jenis,
-                "harga" =>$request->harga,
                 "gambar" =>$pathBaru,
-                "ukuran" =>$request->ukuran,
                 "keterangan" =>$request->keterangan,
                 "created_at" => now()
             ]);
+            
+            ProductVarian::create([
+               'id_product' => $product->id_product,
+               'ukuran' => 'S',
+               'stok' => $request->stok_s,
+               'harga' => $request->harga_s, 
+            ]);
+
+            ProductVarian::create([
+                'id_product' => $product->id_product,
+                'ukuran' => 'M',
+                'stok' => $request->stok_m,
+                'harga' => $request->harga_m, 
+             ]);
+
+             ProductVarian::create([
+                'id_product' => $product->id_product,
+                'ukuran' => 'L',
+                'stok' => $request->stok_l,
+                'harga' => $request->harga_l, 
+             ]);
+
+             ProductVarian::create([
+                'id_product' => $product->id_product,
+                'ukuran' => 'XL',
+                'stok' => $request->stok_xl,
+                'harga' => $request->harga_xl, 
+             ]);
+
             return redirect()->route('products.index');
         }
     }
