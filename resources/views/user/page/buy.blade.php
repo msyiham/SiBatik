@@ -276,12 +276,12 @@
 <script>
     $(function(){
         $(document).on("click",".btn-buy-now",function(){
-            let product_id = '{{ $products->id }}';
+            let product_id = '{{ $products->id_product }}';
             let name = '{{ $products->nama_produk }}';
             let price = '{{ $products->harga }}';
             let image = '{{ $products->gambar }}';
             let quantity = $('input[name="qty"]').val();
-            let size = $('select[name="size"]').val();
+            let size = $('select[name="ukuran"]').val();
 
             $('#frmCart').find('input[name="product_id"]').val(product_id);
             $('#frmCart').find('input[name="name"]').val(name);

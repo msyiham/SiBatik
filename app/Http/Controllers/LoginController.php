@@ -25,12 +25,21 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             if(!Auth::user()->hasRole([
                 User::ROLE_USER,
+                User::ROLE_ADMIN,
             ])){
                 Auth::logout();
                 $request->session()->flash('error', 'Anda tidak diperbolehkan mengakses menu ini');
                 return redirect("/login");
             }
-            return redirect()->intended('home');
+            
+            if(Auth::user()->hasRole([
+                User::ROLE_ADMIN,
+            ])){
+                return redirect('/admin');
+            }
+            else{
+                return redirect()->intended('home');
+            }
         }
         else{
             $request->session()->flash('error', 'Data tidak ditemukan!');

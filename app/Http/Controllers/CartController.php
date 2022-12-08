@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ProductVarian;
 
 class CartController extends Controller
 {
@@ -15,15 +16,24 @@ class CartController extends Controller
 
     public function addCart(Request $request)
     {
+        $productVarian = ProductVarian::where('id_product',$request->product_id)
+                                        ->where('ukuran',$request->size)
+                                        ->first();
+
+
+        if(!$productVarian){
+            return redirect('/buy/'.$request->product_id);
+        }
+                            
         \Cart::add([
             'id' => $request->product_id,
             'name' => $request->name,
-            'price' => $request->price,
+            'price' => $productVarian->harga,
             'quantity' => $request->quantity,
             'attributes' => array(
                 'image' => $request->image,
-                'size' => $request->size,
-                'subtotal' => $request->quantity * $request->price,
+                'size' => $request->ukuran,
+                'subtotal' => $request->quantity * $productVarian->harga,
             )
         ]);
         session()->flash('success', 'Product is Added to Cart Successfully !');

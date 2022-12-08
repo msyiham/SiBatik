@@ -70,7 +70,7 @@ class CustomerController extends Controller
                 "created_at" => now()
             ]);
 
-            // $user->assignRole(User::ROLE_USER);
+            $user->assignRole(User::ROLE_USER);
             return redirect('/login');
             // return dd($user);
         }
