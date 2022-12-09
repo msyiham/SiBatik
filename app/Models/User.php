@@ -30,7 +30,7 @@ class User extends Authenticatable
 
     CONST ROLE_ADMIN = "Administrator";
     CONST ROLE_USER = "User";
-
+    use HasRoles;
     /**
      * The attributes that should be hidden for serialization.
      *

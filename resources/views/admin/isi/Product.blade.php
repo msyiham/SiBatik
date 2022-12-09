@@ -154,6 +154,7 @@
                         <tr>
                             <th class="w-12"><i class="fa fa-wrench"></i></th>
                             <th>Nama Produk</th>
+                            <th>Jenis</th>
                             <th>Ukuran</th>
                             <th>Stok</th>
                             <th>Harga</th>
@@ -167,6 +168,7 @@
                                         <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
                                 <td>{{ $item ->nama_produk}}</td>
+                                <td>{{ $item ->jenis}}</td>
                                 <td>{{ $item ->ukuran}}</td>
                                 <td>{{ $item ->stok}}</td>
                                 <td>{{ $item ->harga}}</td>
@@ -188,10 +190,6 @@
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function () {
-    $('#myTable').DataTable();
-    });  
-</script>
+
 
 @endsection

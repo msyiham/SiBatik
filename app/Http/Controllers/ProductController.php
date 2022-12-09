@@ -17,8 +17,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(3);
-        return view('admin.isi.Product',['products'=>$products]);
+        $data = DB::table('produkvarian')
+                    ->join('products', 'produkvarian.id_product', '=', 'products.id_product')
+                    ->select('products.nama_produk', 'products.jenis', 'produkvarian.ukuran', 'produkvarian.harga', 'produkvarian.stok')
+                    ->get();
+        $data = Product::paginate(3);
+        return view('admin.isi.Product',['products'=>$data]);
     }
     
     public function shop()
