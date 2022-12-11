@@ -159,8 +159,8 @@
                                         </td> --}}
                                         <td>{{ $item ->nama}}</td>
                                         <td>{{ $item ->email}}</td>
-                                        <td>{{ $item ->alamat}}</td>
                                         <td>{{ $item ->telepon}}</td>
+                                        <td>{{ $item ->alamat}}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

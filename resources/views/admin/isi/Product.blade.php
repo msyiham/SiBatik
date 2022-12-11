@@ -178,7 +178,7 @@
                 </table>
             </div>
         </div>
-        <div class="panel-footer">
+        {{-- <div class="panel-footer">
             <div class="row">
                 <div class="col col-sm-6 col-xs-6">Data Per Halaman : <b>{{ $products->perPage() }}</b> Dari : <b>{{ $products->total() }}</b> Data Product</div>
                 <div class="col-sm-6 col-xs-6">
@@ -187,7 +187,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 

@@ -11566,9 +11566,12 @@ body {
                 </div>
             </form>
             <!-- Navbar-->
+            @if (Auth::check())
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+              <a href="{{ route('logout') }}" class="user_link">
                 <i class="fa-solid fa-right-from-bracket mr-3 text-white" data-toggle="tooltip" title="Sign Out" style="padding: 8px"></i>
             </ul>
+            @endif
         </nav>
         <div id="layoutSidenav"  >
             <div id="layoutSidenav_nav" >

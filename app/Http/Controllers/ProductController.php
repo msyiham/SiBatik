@@ -21,17 +21,31 @@ class ProductController extends Controller
                     ->join('products', 'produkvarian.id_product', '=', 'products.id_product')
                     ->select('products.nama_produk', 'products.jenis', 'produkvarian.ukuran', 'produkvarian.harga', 'produkvarian.stok')
                     ->get();
-        $data = Product::paginate(3);
+                    
+        // $products = DB::table('products')
+        // ->join('produkvarian', 'produkvarian.id_product', '=', 'products.id_product')
+        // ->select('products.nama-produk', 'products.jenis', 'produkvarian.ukuran', 'produkvarian.harga','produkvarian.stok')
+        // ->where('products.id_product', $id_product)
+        // ->get();
+        // dd($data);
+        // $data = Product::paginate(3);
+        // $data = Product::all();
         return view('admin.isi.Product',['products'=>$data]);
     }
     
     public function shop()
     {
+        $data = DB::table('produkvarian')
+        ->join('products', 'produkvarian.id_product', '=', 'products.id_product')
+        ->select('products.nama_produk', 'products.jenis', 'produkvarian.ukuran', 'produkvarian.harga', 'produkvarian.stok')
+        ->orderBy()
+        ->get();
         $products = Product::all();
         return view('user.page.shop',['products'=>$products]);
     }
     public function buy(Product $products)
     {
+        
         return view('user.page.buy',['products'=>$products]);
     }
     /**
