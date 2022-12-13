@@ -222,26 +222,15 @@
                     <div class="product_description">
                         <div class="product_name">{{ $products->nama_produk }}</div>
                         <input type="hidden" name="harga" value="{{ $products->nama_produk }}">
-                        <div> <span class="product_price">Rp. {{ $products->harga }}</span>  </div>
-                        <input type="hidden" name="harga" value="{{ $products->harga }}">
+                        <div> <span class="product_price">Rp. {{ number_format($products->harga)  }}</span>  </div>
+                        <input type="hidden" name="harga" value="{{ number_format($products->harga)  }}">
                         <hr class="singleline">
                         <div> <span class="product_info">{{ $products->keterangan }}<span></div>
                         <div><b><span class="">Stok<span></b></div>
                         <div> <span class="product_info">{{ $products->stok }}<span></div>
                         <input type="hidden" name="harga" value="{{ $products->stok }}">
-                        <div>
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <b><span class="">Ukuran</span><br></b>
-                                    <select class="form-control" name="ukuran">
-                                        <option value="S">S</option>
-                                        <option value="M">M</option>
-                                        <option value="L">L</option>
-                                        <option value="XL">XL</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                        <div><b><span class="">Ukuran<span></b></div>
+                            <div> <span class="size">{{ $products->ukuran }} x 1 meter<span></div>
                         <hr class="singleline">
                         <div class="row">
                             <div class="col-xs-6 ">
@@ -281,7 +270,7 @@
             let price = '{{ $products->harga }}';
             let image = '{{ $products->gambar }}';
             let quantity = $('input[name="qty"]').val();
-            let size = $('select[name="ukuran"]').val();
+            let size = '{{ $products->ukuran }}';
 
             $('#frmCart').find('input[name="product_id"]').val(product_id);
             $('#frmCart').find('input[name="name"]').val(name);
