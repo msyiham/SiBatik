@@ -154,10 +154,11 @@
                         <tr>
                             <th class="w-12"><i class="fa fa-wrench"></i></th>
                             <th>Nama Produk</th>
-                            <th>Jenis</th>
-                            <th>Ukuran</th>
+                            <th>Gambar</th>
                             <th>Stok</th>
                             <th>Harga</th>
+                            <th>Ukuran</th>
+                            <th>Keterangan</th>
                         </tr>
                     </thead>
                     <tbody class="text-center">
@@ -168,17 +169,18 @@
                                         <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
                                 <td>{{ $item ->nama_produk}}</td>
-                                <td>{{ $item ->jenis}}</td>
-                                <td>{{ $item ->ukuran}}</td>
+                                <td><img class="card-img-top" src="{{ $item->gambar }}" alt="..." style="width:80px; height:80px;"/></td>
                                 <td>{{ $item ->stok}}</td>
                                 <td>{{ $item ->harga}}</td>
+                                <td>{{ $item ->ukuran}} meter x 1 meter</td>
+                                <td>{{ $item ->keterangan}}</td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-        {{-- <div class="panel-footer">
+        <div class="panel-footer">
             <div class="row">
                 <div class="col col-sm-6 col-xs-6">Data Per Halaman : <b>{{ $products->perPage() }}</b> Dari : <b>{{ $products->total() }}</b> Data Product</div>
                 <div class="col-sm-6 col-xs-6">
@@ -187,7 +189,7 @@
                     </ul>
                 </div>
             </div>
-        </div> --}}
+        </div>
     </div>
 </div>
 

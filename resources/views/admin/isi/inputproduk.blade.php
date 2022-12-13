@@ -26,12 +26,44 @@
                         @enderror
                     </div>
                     <div class="m-2">
-                      {{-- Jenis Product --}}
-                        <label class="form-label" for="jenis">Jenis</label>
-                        <input class="form-control" type="text" name="jenis">
-                        @error('jenis')
+                      {{-- stok Product --}}
+                        <label class="form-label" for="stok">Stok</label>
+                        <input class="form-control" type="text" name="stok">
+                        @error('stok')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
+                    </div>
+                    <div class="m-2">
+                      {{-- harga Product --}}
+                        <label class="form-label" for="harga">Harga</label>
+                        <input class="form-control" type="text" name="harga">
+                        @error('harga')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="m-2">
+                      {{-- ukuran Product --}}
+                        <label class="form-label" for="ukuran">Ukuran</label>
+                        <div class="row">
+                          <div class="col-2">
+                            <input class="form-control" type="text" name="ukuran">
+                          </div>
+                          <div class="col">
+                              <span>X 1 Meter</span>
+                          </div>
+                        </div>
+                        
+                        @error('ukuran')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                      {{-- Keterangan --}}
+                    <div class="m-2">
+                      <label class="form-label" for="keterangan">Keterangan</label>
+                      <input class="form-control" type="text-area" name="keterangan">
+                      @error('keterangan')
+                      <div class="text-danger">{{ $message }}</div>
+                      @enderror
                     </div>
                     {{-- Upload Gambar --}}
                     <div class="m-2">
@@ -40,15 +72,8 @@
                       @error('gambar')
                       <div class="text-danger">{{ $message }}</div>
                       @enderror
-                  </div>
-                  {{-- Keterangan --}}
-                  <div class="m-2">
-                    <label class="form-label" for="keterangan">Keterangan</label>
-                    <input class="form-control" type="text-field" name="keterangan">
-                    @error('keterangan')
-                    <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                </div>
+                    </div>
+                    <button class="btn mb-5 text-white mx-auto" style="background-color:#102744; font-family:'Times New Roman', Times, serif" type="submit"name="tambah">simpan</button>
                     
                 </div>
               </div>
@@ -56,68 +81,6 @@
         </div> 
     </div>
     {{-- Form kedua --}}
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="table-responsive">
-            <table class="table table-striped table-bordered">
-              <thead>
-                <th>UKURAN</th>
-                <th>STOK</th>
-                <th>Harga</th>
-              </thead>
-              <tbody>
-                <tr>
-                  <td name="size_s">
-                    S
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" name="stok_s">
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" name="harga_s">
-                  </td>
-                </tr>
-                <tr>
-                  <td name="size_m">
-                    M
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" name="stok_m">
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" name="harga_m">
-                  </td>
-                </tr>
-                <tr>
-                  <td name="size">
-                    L
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" name="stok_l">
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" name="harga_l">
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    XL
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" name="stok_xl">
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" name="harga_xl">
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <button class="btn mb-5 text-white" style="background-color:#102744; font-family:'Times New Roman', Times, serif" type="submit"name="tambah">simpan</button>
-          </div>
-        </div>
-      </div>
-    </div>
     
   </form>
 @endsection
