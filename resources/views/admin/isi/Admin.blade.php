@@ -7,6 +7,10 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>@yield('title')</title>
+        <!-- Trix Editor -->
+        <link href="{{ URL::to('/') }}/css/trix.css" rel="stylesheet" />
+        <script src="{{ URL::to('/') }}/js/trix.js"></script>
+        <!-- End Trix Editor -->
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <link href="css/styles.css" rel="stylesheet" />
@@ -11697,6 +11701,7 @@ body {
                 @yield('customer')
                 @yield('produk')
                 @yield('input')
+                @yield('Edit')
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">

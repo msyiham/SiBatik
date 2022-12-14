@@ -26,6 +26,7 @@
     <link href="{{ URL::to('/') }}/css/style.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="{{ URL::to('/') }}/css/responsive.css" rel="stylesheet" />
+
     <style>
       .nav-cart{
         position: relative;

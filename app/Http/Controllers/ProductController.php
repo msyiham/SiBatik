@@ -123,7 +123,19 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        // $product = ProductModel::where('id_santri', $request->id_santri);
+        // $extFile = $request->gambar->getClientOriginalExtension();
+        // $namaFile = 'product-'.time().".".$extFile;
+        // $path = $request->gambar->move('image',$namaFile);
+        // $pathBaru = asset('image/'.$namaFile);
+        // $product = Product::update([
+        //     "nama_produk" => $request->nama_produk,
+        //     "stok" =>$request->stok,
+        //     "harga" =>$request->harga,
+        //     "ukuran" =>$request->ukuran,
+        //     "gambar" =>$pathBaru,
+        //     "keterangan" =>$request->keterangan,
+        //   ]);
     }
 
     /**

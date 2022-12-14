@@ -1,10 +1,10 @@
 @extends('admin\isi.Admin')
-@section('title','InputProduk')
-@section('input')
+@section('title','EditProduk')
+@section('Edit')
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-<h3 class="mt-3" style="margin-left: 25px" ><i class="fa-solid fa-table"></i> Input Produk </h3>
+<h3 class="mt-3" style="margin-left: 25px" ><i class="fa-solid fa-table"></i> Edit Produk </h3>
     <hr>
 <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
 @csrf
@@ -28,29 +28,14 @@
                     <div class="m-2">
                       {{-- stok Product --}}
                         <label class="form-label" for="stok">Stok</label>
-<<<<<<< HEAD
-                        <div class="row">
-                          <div class="col-2">
-                            <input class="form-control" type="text" name="stok">
-                          </div>
-                          <div class="col">
-                            <span>Meter X 1 Meter</span>
-                          </div>
-                        </div>
-=======
                         <input class="form-control" type="text" name="stok">
->>>>>>> 05f9d31dfa95f27b5afd6b61d7c72208c5da4a13
                         @error('stok')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="m-2">
                       {{-- harga Product --}}
-<<<<<<< HEAD
-                        <label class="form-label" for="harga">Harga/Meter</label>
-=======
                         <label class="form-label" for="harga">Harga</label>
->>>>>>> 05f9d31dfa95f27b5afd6b61d7c72208c5da4a13
                         <input class="form-control" type="text" name="harga">
                         @error('harga')
                         <div class="text-danger">{{ $message }}</div>
@@ -75,12 +60,7 @@
                       {{-- Keterangan --}}
                     <div class="m-2">
                       <label class="form-label" for="keterangan">Keterangan</label>
-<<<<<<< HEAD
                       <input class="form-control" type="text-area" name="keterangan">
-=======
-                      <input id="keterangan" value="Editor content goes here" type="hidden" name="keterangan">
-                      <trix-editor input="keterangan"></trix-editor>
->>>>>>> 05f9d31dfa95f27b5afd6b61d7c72208c5da4a13
                       @error('keterangan')
                       <div class="text-danger">{{ $message }}</div>
                       @enderror

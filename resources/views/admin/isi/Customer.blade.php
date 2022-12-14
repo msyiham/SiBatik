@@ -141,6 +141,7 @@
                                 <tr>
                                     {{-- <th class="w-4"><input type="checkbox"></th>
                                     <th class="w-12"><i class="fa fa-wrench"></i></th> --}}
+                                    <th class="w-12"><i class="fa fa-wrench"></i></th>
                                     <th>Nama</th>
                                     <th>Email</th>
                                     <th>Nomor Telepon</th>
@@ -157,6 +158,10 @@
                                                 <li><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></li>
                                             </ul>
                                         </td> --}}
+                                        <td>
+                                            <a href="#" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                            <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                        </td>
                                         <td>{{ $item ->nama}}</td>
                                         <td>{{ $item ->email}}</td>
                                         <td>{{ $item ->telepon}}</td>

@@ -38,6 +38,11 @@
                     </a>
                   @endif
                   @if (Auth::check())
+                    <a href="{{ route('history') }}" class="user_link">
+                      <i class="fa fa-history" data-toggle="tooltip" title="Riwayat Pesanan" style="padding: 8px"></i>
+                    </a> 
+                  @endif
+                  @if (Auth::check())
                     <a href="{{ route('profile.index') }}" class="user_link">
                       <i class="fa fa-user" aria-hidden="true" title="Profil"></i>
                     </a>

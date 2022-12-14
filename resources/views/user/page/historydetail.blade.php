@@ -4,7 +4,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 mt-4 mb-4">
+<<<<<<< HEAD
             <a href="" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
+=======
+            <a href="{{ url('history') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
+>>>>>>> 05f9d31dfa95f27b5afd6b61d7c72208c5da4a13
         </div>
         <div class="col-md-12">
             <div class="card">
@@ -21,7 +25,11 @@
                 <div class="card-body">
                     <h3><i class="fa fa-shopping-cart"></i> Detail Pemesanan</h3>
                     @if(!empty($order))
+<<<<<<< HEAD
                     <p align="right">Tanggal Pesan : {{ $order->created_at }}</p>
+=======
+                    <p align="right">Waktu Pemesanan : {{ $order->created_at }}</p>
+>>>>>>> 05f9d31dfa95f27b5afd6b61d7c72208c5da4a13
                     <table class="table table-striped">
                         <thead>
                             <tr>
