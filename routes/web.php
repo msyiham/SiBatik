@@ -10,7 +10,6 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HistoryOrderController;
-use App\Http\Controllers\DashboardController;
 use App\Models\User;
 /*
 |--------------------------------------------------------------------------
@@ -95,6 +94,7 @@ Route::group(["middleware" => ["auth","middleware" => "role:".User::ROLE_USER]],
     ->name('history');
     Route::get('/history-detail/{id}', [HistoryOrderController::class,'detail'])
     ->name('history.detail');
+
     // Route::get('/back', [HistoryOrderController::class,'back'])
     // ->name('back');
     Route::get('/profil', [App\Http\Controllers\ProfilController::class, 'index'])
@@ -103,4 +103,5 @@ Route::group(["middleware" => ["auth","middleware" => "role:".User::ROLE_USER]],
         ->name('profile.edit');
     Route::patch('/update-profil', [App\Http\Controllers\ProfilController::class, 'update'])
     ->name('profile.update');
+
 });

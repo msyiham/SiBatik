@@ -40,7 +40,6 @@
                         <tr>
                             <th class="w-12"><i class="fa fa-wrench"></i></th>
                             <th>Nama Produk</th>
-                            <th>Gambar</th>
                             <th>Stok</th>
                             <th>Harga</th>
                             <th>Ukuran</th>
@@ -55,11 +54,10 @@
                                         <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
                                 <td>{{ $item ->nama_produk}}</td>
-                                <td><img class="card-img-top" src="{{ $item->gambar }}" alt="..." style="width:80px; height:80px;"/></td>
                                 <td>{{ $item ->stok}}</td>
                                 <td>{{ $item ->harga}}</td>
-                                <td>{{ $item ->ukuran}} meter x 1 meter</td>
-                                <td>{!! $item['keterangan'] !!}</td>
+                                <td>{{ $item ->ukuran}}</td>
+                                <td>{!! $item ->keterangan!!}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -77,12 +75,15 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+=======
     </div>
     <div class="" >
         <a href="{{ route('products.create') }}" class="btn btn-primary">
             <i class="fa-solid fa-plus"></i>
             Tambah Produk
         </a>
+>>>>>>> 05f9d31dfa95f27b5afd6b61d7c72208c5da4a13
     </div>
 </div>
 
