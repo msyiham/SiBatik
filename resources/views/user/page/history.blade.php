@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row mt-4 mb-4">
         <div class="col-md-12">
-            <a href="{{ url ('back') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
+            <a href="{{  url ('cart') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="col-md-12 mt-3">
             <div class="card">
