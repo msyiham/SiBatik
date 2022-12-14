@@ -24,6 +24,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{{ URL::to('/') }}/css/style.css" rel="stylesheet" />
+    <link href="{{ URL::to('/') }}/css/shop.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="{{ URL::to('/') }}/css/responsive.css" rel="stylesheet" />
 

@@ -38,8 +38,7 @@ Route::get('/shop', [App\Http\Controllers\ProductController::class,'shop'])
 Route::get('/buy/{products}', [App\Http\Controllers\ProductController::class,'buy'])
     ->name('buy');
 Route::get('/about', [App\Http\Controllers\AboutController::class,'about']);
-Route::get('/profil', [App\Http\Controllers\ProfilController::class, 'index'])
-    ->name('profile.index');
+
 
 //Login
 Route::get('/login', [App\Http\Controllers\LoginController::class,'index'])
@@ -53,7 +52,7 @@ Route::post('/login', [App\Http\Controllers\LoginController::class,'authenticate
 Route::get('/admin',[App\Http\Controllers\AdminController::class,function(){
     return redirect("Dashbord");
 }]); 
-Route::get('/Dashbord', [App\Http\Controllers\AdminController::class,'dashbord']);
+Route::get('/Dashbord', [App\Http\Controllers\DashboardController::class,'index']);
 // Route::get('/Customer', [App\Http\Controllers\AdminController::class,'customer']);
 // Route::get('/Produk', [App\Http\Controllers\AdminController::class,'product']);
 Route::get('/edit', [App\Http\Controllers\AdminController::class,'editproduct']);
@@ -96,6 +95,12 @@ Route::group(["middleware" => ["auth","middleware" => "role:".User::ROLE_USER]],
     ->name('history');
     Route::get('/history-detail/{id}', [HistoryOrderController::class,'detail'])
     ->name('history.detail');
-    Route::get('/back', [HistoryOrderController::class,'back'])
-    ->name('back');
+    // Route::get('/back', [HistoryOrderController::class,'back'])
+    // ->name('back');
+    Route::get('/profil', [App\Http\Controllers\ProfilController::class, 'index'])
+    ->name('profile.index');
+    Route::get('/edit-profil', [App\Http\Controllers\ProfilController::class, 'edit'])
+        ->name('profile.edit');
+    Route::patch('/update-profil', [App\Http\Controllers\ProfilController::class, 'update'])
+    ->name('profile.update');
 });

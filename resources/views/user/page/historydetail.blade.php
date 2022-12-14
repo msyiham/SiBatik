@@ -21,7 +21,7 @@
                 <div class="card-body">
                     <h3><i class="fa fa-shopping-cart"></i> Detail Pemesanan</h3>
                     @if(!empty($order))
-                    <p align="right">Waktu Pemesanan : {{ $order->created_at }}</p>
+                    <p align="right">Waktu Pemesanan : {{ $order->created_at->format('d/m/Y')}} Pukul: {{ $order->created_at->format('h:i')}} </p>
                     <table class="table table-striped">
                         <thead>
                             <tr>

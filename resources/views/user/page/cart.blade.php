@@ -1,21 +1,7 @@
 @extends('user.page.induk')
-@section('title','cart')
+@section('title', 'Keranjang')
 @section('content')
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <title>Cart</title>
-  </head>
-  <body>
-
-    <div class="container mt-5 mb-5 card">
+    <div class="container mt-5 mb-5">
         <div class="row">
             <div class="col-12">
                 <div class="table-responsive">
@@ -69,10 +55,10 @@
                 </div>
             </div>
         </div>
-        <div class="row mb-5">
+        <div class="row">
             <div class="col-12">
                 <a href="{{ route('cart.clearAllCart') }}" class="btn btn-warning">Hapus Semua</a>
-                <a href="{{ route('history') }}" class="btn btn-primary">Checkout</a>
+                <a href="{{ route('cart.checkout') }}" class="btn btn-primary">Checkout</a>
             </div>
         </div>
     </div>
@@ -81,7 +67,6 @@
         @csrf
         <input type="hidden" name="product_id">
     </form>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script>
@@ -93,6 +78,4 @@
             })
         })
     </script>
-  </body>
-</html>
 @endsection

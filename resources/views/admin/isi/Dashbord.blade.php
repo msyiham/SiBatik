@@ -66,36 +66,61 @@
             </div>
           </div>
     </div>
-    <table class="table table-bordered " style="width:92%;" >
-        <thead>
-          <tr style="background-color:rgba(225, 240, 23, 0.811) ">
-            <th scope="col">Produk</th>
-            <th scope="col">Jumlah Produk</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Batik gajah mada</th>
-            <td>1</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">Batik mojopahit</th>
-            <td>50</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">Batik kediri</th>
-            <td colspan="">40</td>
-            <td>asdassadasd</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="panel mt-4">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col col-sm-6 col-xs-12">
+                 
+                    <h4 class="">Data List</h4>
+                 
+                </div>
+                {{-- <div class="col-sm-6 col-xs-12 text-right">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success">Completed</button>
+                        <button type="button" class="btn btn-warning">Pending</button>
+                        <button type="button" class="btn btn-primary">All</button>
+                    </div>
+                </div> --}}
+            </div>
+        </div>
+        <div class="panel-body table-responsive ">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Order Id</th>
+                            <th>Product Id</th>
+                            <th>Harga Produk</th>
+                            <th>Jumlah Order</th>
+                            <th>Total Harga</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        @foreach ($order as $item)
+                            <tr>
+                                <td>{{ $item ->order_id}}</td>
+                                <td>{{ $item ->product_id}}</td>
+                                <td>{{ $item ->price}}</td>
+                                <td>{{ $item ->quantity}}</td>
+                                <td>{{ $item ->total}}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+      
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col col-sm-6 col-xs-6">Data Per Halaman : <b>{{ $order->perPage() }}</b> Dari : <b>{{ $order->total() }}</b> Data Product</div>
+                <div class="col-sm-6 col-xs-6">
+                    <ul class="pagination hidden-xs pull-right">
+                        {{ $order->links() }}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {{-- <main>
   <div class="container-fluid px-4">

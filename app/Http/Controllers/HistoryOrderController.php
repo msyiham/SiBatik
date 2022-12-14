@@ -14,10 +14,10 @@ class HistoryOrderController extends Controller
     	$orders = Order::where('user_id', Auth::user()->id)->get();
     	return view('user.page.history', compact('orders'));
     }
-    public function back()
-    {
-    	return redirect()->back();
-    }
+    // public function back()
+    // {
+    // 	return redirect()->back();
+    // }
     public function detail($id)
     {
     	$order = Order::where('id', $id)->first();

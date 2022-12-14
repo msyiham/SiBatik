@@ -27,4 +27,10 @@ class DashboardController extends Controller
         return view('admin\isi.Dashbord',["posts"=>$posts]);
         // dd($pemesan);
     }
+    public function index()
+    {
+        $data = OrderDetail::paginate(3);
+        // $data = Product::all();
+        return view('admin.isi.Dashbord',['order'=>$data]);
+    }
 }

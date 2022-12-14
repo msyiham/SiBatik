@@ -12,7 +12,6 @@
                   <div class="card-body text-white">
                       <table class="table table-user-information text-white">
                           <tbody>
-  
                             <tr>
                               <td>Nama Lengkap</td>
                               <td>{{ $user->nama }}</td>
@@ -31,13 +30,13 @@
                             </tr>
                             <tr>
                               <td>No HP</td>
-                              <td>{{ $user->telepon }}(Mobile)</td>
+                              <td>{{ $user->telepon }} (Mobile)</td>
                             </tr>
                           </tbody>
                       </table>
                       <div class="panel-footer">
                           <span class="pull-right">
-                              <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>
+                              <a href="{{  url ('edit-profil') }}" data-original-title="Edit this user" title="Edit Profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>
                           </span>
                       </div>
                   </div>
