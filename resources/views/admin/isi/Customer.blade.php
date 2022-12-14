@@ -157,9 +157,12 @@
                                                 <li><a href="#" class="btn btn-default"><i class="fa fa-edit"></i></a></li>
                                                 <li><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></li>
                                             </ul>
+
+                                            {{ url('user-detail') }}/{{ $user->id }}
+
                                         </td> --}}
                                         <td>
-                                            <a href="{{ url('user-detail') }}/{{ $user->id }}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
+                                            <a href="" class="btn btn-primary"><i class="fa fa-eye"></i></a>
                                         </td>
                                         <td>{{ $item ->nama}}</td>
                                         <td>{{ $item ->email}}</td>
