@@ -17,29 +17,20 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = DB::table('produkvarian')
-                    ->join('products', 'produkvarian.id_product', '=', 'products.id_product')
-                    ->select('products.nama_produk', 'products.jenis', 'produkvarian.ukuran', 'produkvarian.harga', 'produkvarian.stok')
-                    ->get();
-                    
-        // $products = DB::table('products')
-        // ->join('produkvarian', 'produkvarian.id_product', '=', 'products.id_product')
-        // ->select('products.nama-produk', 'products.jenis', 'produkvarian.ukuran', 'produkvarian.harga','produkvarian.stok')
-        // ->where('products.id_product', $id_product)
-        // ->get();
-        // dd($data);
-        // $data = Product::paginate(3);
+        $data = Product::paginate(3);
         // $data = Product::all();
         return view('admin.isi.Product',['products'=>$data]);
     }
     
     public function shop()
     {
-        $data = DB::table('produkvarian')
-        ->join('products', 'produkvarian.id_product', '=', 'products.id_product')
-        ->select('products.nama_produk', 'products.jenis', 'produkvarian.ukuran', 'produkvarian.harga', 'produkvarian.stok')
-        ->orderBy()
-        ->get();
+        // $data = DB::table('produkvarian')
+        // ->join('products', 'produkvarian.id_product', '=', 'products.id_product')
+        // ->select('products.nama_produk', 'products.jenis', 'produkvarian.ukuran', 'produkvarian.harga', 'produkvarian.stok')
+        // ->get();
+        // $users = User::join('posts', 'posts.user_id', '=', 'users.id')
+        //       ->join('comments', 'comments.post_id', '=', 'posts.id')
+        //       ->get(['users.*', 'posts.descrption']);
         $products = Product::all();
         return view('user.page.shop',['products'=>$products]);
     }
@@ -69,7 +60,9 @@ class ProductController extends Controller
         $validator = Validator::make($request->all(),
         [
             'nama_produk' => 'required',
-            'jenis' => 'required',
+            'stok' => 'required',
+            'harga' => 'required',
+            'ukuran' => 'required',
             'keterangan' => 'required',
             'gambar' => 'required|file|mimes:jpg,png|max:5000'
         ],
@@ -88,40 +81,13 @@ class ProductController extends Controller
             $pathBaru = asset('image/'.$namaFile);
             $product = Product::create([
                 "nama_produk" => $request->nama_produk,
-                "jenis" =>$request->jenis,
+                "stok" =>$request->stok,
+                "harga" =>$request->harga,
+                "ukuran" =>$request->ukuran,
                 "gambar" =>$pathBaru,
                 "keterangan" =>$request->keterangan,
                 "created_at" => now()
             ]);
-            
-            ProductVarian::create([
-               'id_product' => $product->id_product,
-               'ukuran' => 'S',
-               'stok' => $request->stok_s,
-               'harga' => $request->harga_s, 
-            ]);
-
-            ProductVarian::create([
-                'id_product' => $product->id_product,
-                'ukuran' => 'M',
-                'stok' => $request->stok_m,
-                'harga' => $request->harga_m, 
-             ]);
-
-             ProductVarian::create([
-                'id_product' => $product->id_product,
-                'ukuran' => 'L',
-                'stok' => $request->stok_l,
-                'harga' => $request->harga_l, 
-             ]);
-
-             ProductVarian::create([
-                'id_product' => $product->id_product,
-                'ukuran' => 'XL',
-                'stok' => $request->stok_xl,
-                'harga' => $request->harga_xl, 
-             ]);
-
             return redirect()->route('products.index');
         }
     }

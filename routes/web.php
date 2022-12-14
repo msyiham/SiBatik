@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\HistoryOrderController;
 use App\Models\User;
 /*
 |--------------------------------------------------------------------------
@@ -74,15 +75,22 @@ Route::post('/product', [ProductController::class,'store'])
 
 Route::group(["middleware" => ["auth","middleware" => "role:".User::ROLE_USER]],function(){
     Route::group(["prefix" => "cart" , "as" => "cart."],function(){
-    Route::get('/', [CartController::class,'index'])
-    ->name('index');
-    Route::post('/addCart', [CartController::class,'addCart'])
-    ->name('addCart');
-    Route::post('/updateCart', [CartController::class,'updateCart'])
-    ->name('updateCart');
-    Route::post('/removeCart', [CartController::class,'removeCart'])
-    ->name('removeCart');
-    Route::get('/clearAllCart', [CartController::class,'clearAllCart'])
-    ->name('clearAllCart');
-});
+        Route::get('/', [CartController::class,'index'])
+        ->name('index');
+        Route::post('/addCart', [CartController::class,'addCart'])
+        ->name('addCart');
+        Route::post('/updateCart', [CartController::class,'updateCart'])
+        ->name('updateCart');
+        Route::post('/removeCart', [CartController::class,'removeCart'])
+        ->name('removeCart');
+        Route::get('/clearAllCart', [CartController::class,'clearAllCart'])
+        ->name('clearAllCart');
+        Route::get('/checkout', [CartController::class,'checkout'])
+        ->name('checkout');
+
+    });
+    Route::get('/history', [HistoryOrderController::class,'index'])
+    ->name('history');
+    Route::get('/history-detail/{id}', [HistoryOrderController::class,'detail'])
+    ->name('history.detail');
 });

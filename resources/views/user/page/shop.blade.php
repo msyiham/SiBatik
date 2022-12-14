@@ -11311,7 +11311,7 @@ textarea.form-control-lg {
                       <div class="bi-star-fill"></div>
                   </div>
                   <!-- Product price-->
-                  {{ $item->harga }}
+                  Rp. {{ number_format($item->harga)  }}
               </div>
           </div>
           <!-- Product actions-->
