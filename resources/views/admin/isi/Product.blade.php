@@ -118,17 +118,12 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-<div class="col-md-10 p-5 pt-2 d" style="margin-top: 10px">
-    <div class="row justify-content-center">
+<div class="col-md-10 p-5 pt-2 d justify-content-center" style="margin-top: 10px">
+    <div class="">
         <div class="col">
             <h3 class="mt-3"><i class="fa-solid fa-shirt"></i> Produk </h3>
         </div>
-        <div class="col">
-            <a href="{{ route('products.create') }}" class="btn btn-primary">
-                <i class="fa-solid fa-plus"></i>
-                Tambah Produk
-            </a>
-        </div>
+        
         <hr>
     </div>
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css /> -->
@@ -136,7 +131,9 @@
         <div class="panel-heading">
             <div class="row">
                 <div class="col col-sm-6 col-xs-12">
-                    <h4 class="title">Data List</h4>
+                 
+                    <h4 class="">Data List</h4>
+                 
                 </div>
                 {{-- <div class="col-sm-6 col-xs-12 text-right">
                     <div class="btn-group">
@@ -165,7 +162,7 @@
                         @foreach ($products as $item)
                             <tr>
                                 <td>
-                                        <a href="#" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                        <a href="/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                                         <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
                                 <td>{{ $item ->nama_produk}}</td>
@@ -179,6 +176,7 @@
                     </tbody>
                 </table>
             </div>
+      
         </div>
         <div class="panel-footer">
             <div class="row">
@@ -190,6 +188,12 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="" >
+        <a href="{{ route('products.create') }}" class="btn btn-primary">
+            <i class="fa-solid fa-plus"></i>
+            Tambah Produk
+        </a>
     </div>
 </div>
 

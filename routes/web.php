@@ -34,7 +34,7 @@ Route::get('/', function () {
 Route::get('/nyobak', [App\Http\Controllers\DashboardController::class,'totalPemesan']);
 
 Route::get('/shop', [App\Http\Controllers\ProductController::class,'shop'])
-    ->name('shop');;
+    ->name('shop');
 Route::get('/buy/{products}', [App\Http\Controllers\ProductController::class,'buy'])
     ->name('buy');
 Route::get('/about', [App\Http\Controllers\AboutController::class,'about']);
@@ -56,7 +56,7 @@ Route::get('/admin',[App\Http\Controllers\AdminController::class,function(){
 Route::get('/Dashbord', [App\Http\Controllers\AdminController::class,'dashbord']);
 // Route::get('/Customer', [App\Http\Controllers\AdminController::class,'customer']);
 // Route::get('/Produk', [App\Http\Controllers\AdminController::class,'product']);
-// Route::get('/input', [App\Http\Controllers\AdminController::class,'inputproduct']);
+Route::get('/edit', [App\Http\Controllers\AdminController::class,'editproduct']);
 
 
 //crud customer

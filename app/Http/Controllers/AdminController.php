@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Psy\TabCompletion\Matcher\FunctionsMatcher;
 
 class AdminController extends Controller
 {
@@ -20,5 +21,8 @@ class AdminController extends Controller
     }
     public function inputproduct(){
         return view('admin.isi.inputproduk');
+    }
+    public function editproduct(){
+        return view('admin.isi.edit');
     }
 }
