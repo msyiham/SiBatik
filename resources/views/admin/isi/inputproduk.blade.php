@@ -28,7 +28,6 @@
                     <div class="m-2">
                       {{-- stok Product --}}
                         <label class="form-label" for="stok">Stok</label>
-<<<<<<< HEAD
                         <div class="row">
                           <div class="col-2">
                             <input class="form-control" type="text" name="stok">
@@ -37,20 +36,13 @@
                             <span>Meter X 1 Meter</span>
                           </div>
                         </div>
-=======
-                        <input class="form-control" type="text" name="stok">
->>>>>>> 05f9d31dfa95f27b5afd6b61d7c72208c5da4a13
                         @error('stok')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="m-2">
                       {{-- harga Product --}}
-<<<<<<< HEAD
                         <label class="form-label" for="harga">Harga/Meter</label>
-=======
-                        <label class="form-label" for="harga">Harga</label>
->>>>>>> 05f9d31dfa95f27b5afd6b61d7c72208c5da4a13
                         <input class="form-control" type="text" name="harga">
                         @error('harga')
                         <div class="text-danger">{{ $message }}</div>

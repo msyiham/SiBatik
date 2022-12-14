@@ -75,15 +75,12 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-=======
     </div>
     <div class="" >
         <a href="{{ route('products.create') }}" class="btn btn-primary">
             <i class="fa-solid fa-plus"></i>
             Tambah Produk
         </a>
->>>>>>> 05f9d31dfa95f27b5afd6b61d7c72208c5da4a13
     </div>
 </div>
 

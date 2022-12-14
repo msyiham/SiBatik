@@ -6,10 +6,10 @@
         <div class="row mt-4 mb-4 mx-auto justify-content-center">
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3" >
               <div class="card profil">
-                  <div class="card-header header-profil">
+                  <div class="card-header header-profil" style="background-color: rgb(21, 24, 24);">
                       <h3 class="panel-title">Profil</h3>
                   </div>
-                  <div class="card-body text-white">
+                  <div class="card-body text-white" style="background-color: rgb(71, 82, 82);">
                       <table class="table table-user-information text-white">
                           <tbody>
                             <tr>
