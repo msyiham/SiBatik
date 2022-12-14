@@ -60,7 +60,8 @@
                       {{-- Keterangan --}}
                     <div class="m-2">
                       <label class="form-label" for="keterangan">Keterangan</label>
-                      <input class="form-control" type="text-area" name="keterangan">
+                      <input id="keterangan" value="Editor content goes here" type="hidden" name="keterangan">
+                      <trix-editor input="keterangan"></trix-editor>
                       @error('keterangan')
                       <div class="text-danger">{{ $message }}</div>
                       @enderror

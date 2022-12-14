@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HistoryOrderController;
+use App\Http\Controllers\DashboardController;
 use App\Models\User;
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,8 @@ Route::get('/home', function () {
 Route::get('/', function () {
     return view('user.page.home');
 });
+
+Route::get('/nyobak', [App\Http\Controllers\DashboardController::class,'totalPemesan']);
 
 Route::get('/shop', [App\Http\Controllers\ProductController::class,'shop'])
     ->name('shop');;

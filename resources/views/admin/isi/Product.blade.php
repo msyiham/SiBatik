@@ -173,7 +173,7 @@
                                 <td>{{ $item ->stok}}</td>
                                 <td>{{ $item ->harga}}</td>
                                 <td>{{ $item ->ukuran}} meter x 1 meter</td>
-                                <td>{{ $item ->keterangan}}</td>
+                                <td>{!! $item['keterangan'] !!}</td>
                             </tr>
                         @endforeach
                     </tbody>

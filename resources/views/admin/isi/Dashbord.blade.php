@@ -48,7 +48,7 @@
                 <i class="fa-solid fa-user  "></i>
             </div>
             <div class="card-body">
-              <h5 class="card-title text-white">Jumlah Pembeli</h5>
+              <h5 class="card-title text-white">Jumlah Pemesan</h5>
               <div class="display-6 text-white">50</div>
               <br>
               <a href="#"><p class="card-text text-white"> lihat detail <i class="fas fa-angle-double-right"></i> </p></a>

@@ -225,7 +225,7 @@
                         <div> <span class="product_price">Rp. {{ number_format($products->harga)  }}</span>  </div>
                         <input type="hidden" name="harga" value="{{ number_format($products->harga)  }}">
                         <hr class="singleline">
-                        <div> <span class="product_info">{{ $products->keterangan }}<span></div>
+                        <div> <span class="product_info">{!! $products['keterangan'] !!}<span></div>
                         <div><b><span class="">Stok<span></b></div>
                         <div> <span class="product_info">{{ $products->stok }}<span></div>
                         <input type="hidden" name="harga" value="{{ $products->stok }}">
