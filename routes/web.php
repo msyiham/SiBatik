@@ -73,6 +73,10 @@ Route::get('/product/create', [ProductController::class,'create'])
     ->name('products.create');
 Route::post('/product', [ProductController::class,'store'])
     ->name('products.store');
+Route::get('/edit/{id_product}', [ProductController::class,'edit'])
+    ->name('products.edit');
+Route::patch('/update/{id_product}', [ProductController::class,'update'])
+    ->name('products.update');
 
 Route::group(["middleware" => ["auth","middleware" => "role:".User::ROLE_USER]],function(){
     Route::group(["prefix" => "cart" , "as" => "cart."],function(){
@@ -103,8 +107,8 @@ Route::group(["middleware" => ["auth","middleware" => "role:".User::ROLE_USER]],
         ->name('profile.edit');
     Route::patch('/update-profil', [App\Http\Controllers\ProfilController::class, 'update'])
     ->name('profile.update');
-//verifikasi login
-Route::get('email/verify/need-verification',[VerificationController::class,'notice'])->middleware('auth')->name('verification.notice');
-Route::get('email/verify/{id}/{hash}',[VerificationController::class,'verify'])->middleware(['auth','signed'])->name('verification.verify');
+    //verifikasi login
+    Route::get('email/verify/need-verification',[VerificationController::class,'notice'])->middleware('auth')->name('verification.notice');
+    Route::get('email/verify/{id}/{hash}',[VerificationController::class,'verify'])->middleware(['auth','signed'])->name('verification.verify');
 
 });
