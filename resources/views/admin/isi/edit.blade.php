@@ -6,7 +6,8 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 <h3 class="mt-3" style="margin-left: 25px" ><i class="fa-solid fa-table"></i> Edit Produk </h3>
     <hr>
-<form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ url('/update/'.$selected->id_product) }}" method="POST" enctype="multipart/form-data">
+@method('PATCH')
 @csrf
 <div class="pt-2 mb-5" style="margin-top: 10px;">
     <div class="row justify-content-center">
@@ -20,7 +21,7 @@
                     <div class="m-2">
                       {{-- Nama Product --}}
                         <label class="form-label " for="nama_produk">Nama Produk</label>
-                        <input class="form-control" type="text" name="nama_produk">
+                        <input class="form-control" type="text" name="nama_produk" value="{{ $selected->nama_produk }}">
                         @error('nama_produk')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -28,7 +29,7 @@
                     <div class="m-2">
                       {{-- stok Product --}}
                         <label class="form-label" for="stok">Stok</label>
-                        <input class="form-control" type="text" name="stok">
+                        <input class="form-control" type="text" name="stok" value="{{ $selected->stok }}">
                         @error('stok')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -36,7 +37,7 @@
                     <div class="m-2">
                       {{-- harga Product --}}
                         <label class="form-label" for="harga">Harga</label>
-                        <input class="form-control" type="text" name="harga">
+                        <input class="form-control" type="text" name="harga" value="{{ $selected->harga }}">
                         @error('harga')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -46,7 +47,7 @@
                         <label class="form-label" for="ukuran">Ukuran</label>
                         <div class="row">
                           <div class="col-2">
-                            <input class="form-control" type="text" name="ukuran">
+                            <input class="form-control" type="text" name="ukuran" value="{{ $selected->ukuran }}">
                           </div>
                           <div class="col">
                               <span>X 1 Meter</span>
@@ -60,7 +61,7 @@
                       {{-- Keterangan --}}
                     <div class="m-2">
                       <label class="form-label" for="keterangan">Keterangan</label>
-                      <input class="form-control" type="text-area" name="keterangan">
+                      <textarea name="keterangan" class="form-control summernote">{{ $selected->keterangan }}</textarea>
                       @error('keterangan')
                       <div class="text-danger">{{ $message }}</div>
                       @enderror
@@ -69,6 +70,7 @@
                     <div class="m-2">
                       <label class="form-label" for="gambar">Upload Gambar</label>
                       <input class="form-control" type="file" name="gambar">
+                      <p>Kosongkan jika tidak diubah</p>
                       @error('gambar')
                       <div class="text-danger">{{ $message }}</div>
                       @enderror

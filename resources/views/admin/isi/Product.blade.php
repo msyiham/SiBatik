@@ -50,7 +50,7 @@
                         @foreach ($products as $item)
                             <tr>
                                 <td>
-                                        <a href="/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                        <a href="{{ url('/edit/'.$item->id_product) }}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                                         <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
                                 <td>{{ $item ->nama_produk}}</td>

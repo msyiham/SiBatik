@@ -73,6 +73,10 @@ Route::get('/product/create', [ProductController::class,'create'])
     ->name('products.create');
 Route::post('/product', [ProductController::class,'store'])
     ->name('products.store');
+Route::get('/edit/{id_product}', [ProductController::class,'edit'])
+    ->name('products.edit');
+Route::patch('/update/{id_product}', [ProductController::class,'update'])
+    ->name('products.update');
 
 Route::group(["middleware" => ["auth","middleware" => "role:".User::ROLE_USER]],function(){
     Route::group(["prefix" => "cart" , "as" => "cart."],function(){
