@@ -100,7 +100,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        
+ 
     }
 
     /**
@@ -109,9 +109,10 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id_product)
     {
-        //
+        $product = Product::where('id_product',$id_product)->first();
+        return view('admin.isi.edit',['selected'=>$product]);
     }
 
     /**
@@ -121,9 +122,49 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request,$id_product)
     {
-        // $product = ProductModel::where('id_santri', $request->id_santri);
+        $validator = Validator::make($request->all(),
+        [
+            'nama_produk' => 'required',
+            'stok' => 'required',
+            'harga' => 'required',
+            'ukuran' => 'required',
+            'keterangan' => 'required',
+            'gambar' => 'nullable|file|mimes:jpg,png|max:5000'
+        ],
+        [
+            'required' =>':attribute wajib diisi.',
+            'mimes' =>':attribute harus gambar jpg/png.',
+            'max' => 'ukuran :attribute terlalu besar'
+            
+        ]);
+        if ($validator->fails()) {
+            return redirect('/product/create')->withErrors($validator)->withInput();
+        }else{
+            $result = Product::where('id_product',$id_product)->first();
+
+            if(!empty($request->gambar)){
+                $product = Product::where('id_prdouct', $request->id_product);
+                $extFile = $request->gambar->getClientOriginalExtension();
+                $namaFile = 'product-'.time().".".$extFile;
+                $path = $request->gambar->move('image',$namaFile);
+                $pathBaru = asset('image/'.$namaFile);
+            }else{
+                $pathBaru = $result->gambar;
+            }
+
+            $result->update([
+                "nama_produk" => $request->nama_produk,
+                "stok" =>$request->stok,
+                "harga" =>$request->harga,
+                "ukuran" =>$request->ukuran,
+                "gambar" =>$pathBaru,
+                "keterangan" =>$request->keterangan,
+                "created_at" => now()
+            ]);
+            return redirect()->route('products.index');
+        // $product = Product::where('id_prdouct', $request->id_product);
         // $extFile = $request->gambar->getClientOriginalExtension();
         // $namaFile = 'product-'.time().".".$extFile;
         // $path = $request->gambar->move('image',$namaFile);
@@ -135,7 +176,9 @@ class ProductController extends Controller
         //     "ukuran" =>$request->ukuran,
         //     "gambar" =>$pathBaru,
         //     "keterangan" =>$request->keterangan,
-        //   ]);
+        // ]);
+
+        }
     }
 
     /**
