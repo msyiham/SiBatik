@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
@@ -69,7 +70,7 @@ class CustomerController extends Controller
                 // "status" => $request->status,
                 "created_at" => now()
             ]);
-
+            // event(new Registered($user));
             $user->assignRole(User::ROLE_USER);
             return redirect('/login');
             // return dd($user);
