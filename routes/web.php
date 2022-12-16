@@ -103,9 +103,9 @@ Route::group(["middleware" => ["auth","middleware" => "role:".User::ROLE_USER]],
     // ->name('back');
     Route::get('/profil', [App\Http\Controllers\ProfilController::class, 'index'])
     ->name('profile.index');
-    Route::get('/edit-profil', [App\Http\Controllers\ProfilController::class, 'edit'])
+    Route::get('/edit-profil/{user_id}', [App\Http\Controllers\ProfilController::class, 'edit'])
         ->name('profile.edit');
-    Route::patch('/update-profil', [App\Http\Controllers\ProfilController::class, 'update'])
+    Route::patch('/update-profil/{user_id}', [App\Http\Controllers\ProfilController::class, 'update'])
     ->name('profile.update');
     //verifikasi login
     Route::get('email/verify/need-verification',[VerificationController::class,'notice'])->middleware('auth')->name('verification.notice');

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 // use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class ProfilController extends Controller
 {
@@ -15,21 +16,47 @@ class ProfilController extends Controller
         $user = User::findOrFail(Auth::id());
         return view('user.page.profil', compact('user'));
     }
-    // public function edit(Request $request)
-    // {   
-    //     return view('user.page.update_profil', [
-    //         'user' => $request->user()
-    //     ]);
-    // }
-    // public function update(Authenticatable $request)
-    // {
-    //     $user = User::findOrFail(Auth::id());
-    //     $user->nama = $request->get('nama');
-    //     $user->alamat = $request->get('alamat');
-    //     $user->email = $request->get('email');
-    //     $user->telepon = $request->get('telepon');
-    //     $user->password = $request->get('password');
-    //     $user->save();
-    //     return \Redirect::route('profile.edit', [$user->id])->with('message', 'User has been updated!');
-    // }
+    public function edit()
+    {
+        $user = User::findOrFail(Auth::id());
+        return view('user.page.update_profil', ['user'=> $user]);
+    }
+    public function update(Request $request)
+    {
+        $validator = Validator::make($request->all(),
+        [
+            'nama' => 'required',
+            'alamat' => 'required',
+            'email' => 'required',
+            'telepon' => 'required',
+            'password' => 'nullable'
+        ],
+        [
+            'required' =>':attribute wajib diisi.'
+            
+        ]);
+
+        $result = Auth::user();
+        
+        if ($validator->fails()) {
+            return redirect('/edit-profil/'.Auth::user()->id)->withErrors($validator)->withInput();
+        }else{
+            if(!empty($request->password)){
+                $password = bcrypt($request->password);
+            }else{
+                $password = $result->password;
+            }
+
+            $result->update([
+                "nama" => $request->nama,
+                "alamat" =>$request->alamat,
+                "email" =>$request->email,
+                "telepon" =>$request->telepon,
+                "password" =>$password,
+                "updated_at" => now()
+            ]);
+            return redirect()->route('profile.index');
+        }
+    }
+
 }
