@@ -49,8 +49,8 @@
                 <i class="fa-solid fa-user  "></i>
             </div>
             <div class="card-body">
-              <h5 class="card-title text-white">Jumlah Pemesan</h5>
-              <div class="display-6 text-white">50</div>
+              <h5 class="card-title text-white">Jumlah User</h5>
+              <div class="display-6 text-white">{{ $total_user }}</div>
               <br>
               <a href="#"><p class="card-text text-white"> lihat detail <i class="fas fa-angle-double-right"></i> </p></a>
             </div>
@@ -60,8 +60,8 @@
                 <i class="fa-solid fa-bag-shopping"></i>
             </div>
             <div class="card-body">
-              <h5 class="card-title text-white">Total Produk Terjual</h5>
-              <div class="display-6 text-white">100</div>
+              <h5 class="card-title text-white">Jumlah Pesanan</h5>
+              <div class="display-6 text-white">{{ $total_pesanan }}</div>
               <br>
               <a href="#"><p class="card-text text-white"> lihat detail <i class="fas fa-angle-double-right"></i> </p></a>
             </div>
@@ -97,7 +97,7 @@
                         </tr>
                     </thead>
                     <tbody class="text-center">
-                        @foreach ($order as $item)
+                        {{-- @foreach ($order as $item)
                             <tr>
                                 <td>{{ $item ->order_id}}</td>
                                 <td>{{ $item ->product_id}}</td>
@@ -105,13 +105,13 @@
                                 <td>{{ $item ->quantity}}</td>
                                 <td>{{ $item ->total}}</td>
                             </tr>
-                        @endforeach
+                        @endforeach --}}
                     </tbody>
                 </table>
             </div>
       
         </div>
-        <div class="panel-footer">
+        {{-- <div class="panel-footer">
             <div class="row">
                 <div class="col col-sm-6 col-xs-6">Data Per Halaman : <b>{{ $order->perPage() }}</b> Dari : <b>{{ $order->total() }}</b> Data Product</div>
                 <div class="col-sm-6 col-xs-6">
@@ -120,7 +120,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 {{-- <main>

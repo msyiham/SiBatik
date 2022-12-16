@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HistoryOrderController;
 use App\Models\User;
 /*
