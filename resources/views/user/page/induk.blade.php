@@ -49,6 +49,7 @@
     </style>
 </head>
 <body>
+  @include('sweetalert::alert')
     @include('user.layout.navbar')
     @yield('content')
     @include('user.layout.footer')

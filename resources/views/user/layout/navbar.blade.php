@@ -20,14 +20,14 @@
                     <a class="nav-link" href="/home">Beranda<span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item @if(request()->is('shop')) active @endif">
-                    <a class="nav-link" href="{{ route('shop') }}">Belanja </a>
+                    <a class="nav-link" href="{{ route('shop') }}">Belanja</a>
                   </li>
                   <li class="nav-item @if(request()->is('about')) active @endif">
                     <a class="nav-link" href="/about">Tentang Kami</a>
                   </li>
                   @if (Auth::check())
                   <li class="nav-item @if(request()->is('/cart')) active @endif">
-                    <a class="nav-link nav-cart" href="/cart">cart <span class="nav-cart-total">{{ Cart::getTotalQuantity()}}</span> </a>
+                    <a class="nav-link nav-cart" href="/cart">Keranjang<span class="nav-cart-total">{{ Cart::getTotalQuantity()}}</span> </a>
                   </li>
                   @endif
                 </ul>

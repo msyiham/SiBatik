@@ -239,7 +239,7 @@
                             </div>
                             <div class="col-xs-6 mt-4">
                                 @if(Auth::check())
-                                    <button type="button" class="btn btn-success shop-button btn-buy-now">Beli Sekarang</button>
+                                    <button type="button" class="btn btn-success shop-button btn-buy-now">Tambahkan keranjang</button>
                                 @endif
                             </div>
                         </div>

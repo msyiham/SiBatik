@@ -7,6 +7,7 @@ use App\Models\ProductVarian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductController extends Controller
 {
@@ -73,6 +74,7 @@ class ProductController extends Controller
             
         ]);
         if ($validator->fails()) {
+            
             return redirect('/product/create')->withErrors($validator)->withInput();
         }else {
             $extFile = $request->gambar->getClientOriginalExtension();
@@ -88,6 +90,7 @@ class ProductController extends Controller
                 "keterangan" =>$request->keterangan,
                 "created_at" => now()
             ]);
+            Alert::success('Yeay','Produk berhasil ditambahkan.');
             return redirect()->route('products.index');
         }
     }
@@ -163,6 +166,7 @@ class ProductController extends Controller
                 "keterangan" =>$request->keterangan,
                 "created_at" => now()
             ]);
+            Alert::success('Yeay','Produk berhasil diperbarui.');
             return redirect()->route('products.index');
         // $product = Product::where('id_prdouct', $request->id_product);
         // $extFile = $request->gambar->getClientOriginalExtension();
@@ -191,6 +195,7 @@ class ProductController extends Controller
     {
         $items = Product::where('id_product',$id_product)->first();
         $items->delete();
+        Alert::success('Yeay','Produk berhasil dihapus.');
         return redirect()->back();
     }
 }

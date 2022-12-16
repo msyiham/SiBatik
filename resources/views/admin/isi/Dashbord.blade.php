@@ -29,6 +29,7 @@
     }
 </style>
 <div class="col-md-10 p-5 pt-2 d">
+    @include('sweetalert::alert')
     <h3><i class="fa-solid fa-gauge-high "></i> Dashboard </h3>
     <hr>
     <div class="row">

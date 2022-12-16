@@ -126,7 +126,7 @@
 </style>
 <div class="container tengah" ">
 <br>  
-
+@include('sweetalert::alert')
 <div class=" regis down content">
 <article class="card-body mx-auto" style="max-width: 400px;">
     <img style="width:150px; height:150px;" class="fadeIn first" src={{ asset('images/SiBatik.png') }}>

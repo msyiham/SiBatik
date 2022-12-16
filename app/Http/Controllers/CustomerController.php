@@ -7,7 +7,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
-
+use RealRashid\SweetAlert\Facades\Alert;
 class CustomerController extends Controller
 {
     /**
@@ -28,6 +28,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
+        
         return view ('user.login.Registrasi');
     }
 
@@ -58,6 +59,7 @@ class CustomerController extends Controller
         ]);
         
         if ($validator->fails()) {
+            Alert::error('Perhatikan', 'Harap memasukkan data yang benar.');
             return redirect('/customers/regis')->withErrors($validator)->withInput();
         }else {
             $hash = bcrypt($request->password);
@@ -71,6 +73,7 @@ class CustomerController extends Controller
                 "created_at" => now()
             ]);
             // event(new Registered($user));
+            Alert::success('Yeay','Registrasi Sukses');
             $user->assignRole(User::ROLE_USER);
             return redirect('/login');
             // return dd($user);

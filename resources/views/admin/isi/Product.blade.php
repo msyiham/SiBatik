@@ -8,6 +8,7 @@
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 <div class="col-md-10 p-5 pt-2 d justify-content-center" style="margin-top: 10px">
+    @include('sweetalert::alert')
     <div class="">
         <div class="col">
             <h3 class="mt-3"><i class="fa-solid fa-shirt"></i> Produk </h3>
