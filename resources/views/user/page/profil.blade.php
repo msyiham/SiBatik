@@ -36,7 +36,7 @@
                       </table>
                       <div class="panel-footer">
                           <span class="pull-right">
-                              <a href="{{  url ('edit-profil') }}" data-original-title="Edit this user" title="Edit Profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>
+                              <a href="{{  route('profile.edit',auth()->user()->id) }}" data-original-title="Edit this user" title="Edit Profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>
                           </span>
                       </div>
                   </div>

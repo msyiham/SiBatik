@@ -9,6 +9,7 @@
 <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
 @csrf
 <div class="pt-2 mb-5" style="margin-top: 10px;">
+  
     <div class="row justify-content-center">
         <div class="col-lg-9">
             <div class="card">

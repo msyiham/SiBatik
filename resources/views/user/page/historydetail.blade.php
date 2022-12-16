@@ -60,12 +60,41 @@
             <div class="card mb-5">
                 <div class="card-body">
                     @if($order->status == 0)
-                    <a href="" class="btn btn-warning">Bayar Sekarang</a>
+                    <a href="" class="btn btn-warning" id="pay-button">Bayar Sekarang</a>
+
                     @endif
                 </div>
+
             </div>
         </div>
         
     </div>
 </div>
+
+       <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
+	 <script>
+                // For example trigger on button clicked, or any time you need
+                var payButton = document.getElementById('pay-button');
+        payButton.addEventListener('click', function () {
+          // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+        window.snap.pay('{{$snapToken}}', {
+            onSuccess: function(result){
+              /* You may add your own implementation here */
+              alert("payment success!"); console.log(result);
+            },
+            onPending: function(result){
+              /* You may add your own implementation here */
+              alert("wating your payment!"); console.log(result);
+            },
+            onError: function(result){
+              /* You may add your own implementation here */
+              alert("payment failed!"); console.log(result);
+            },
+            onClose: function(){
+              /* You may add your own implementation here */
+              alert('you closed the popup without finishing the payment');
+            }
+          })
+        });
+     </script>
 @endsection

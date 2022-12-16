@@ -8,6 +8,7 @@
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 <div class="col-md-10 p-5 pt-2 d justify-content-center" style="margin-top: 10px">
+    @include('sweetalert::alert')
     <div class="">
         <div class="col">
             <h3 class="mt-3"><i class="fa-solid fa-shirt"></i> Produk </h3>
@@ -40,6 +41,7 @@
                         <tr>
                             <th class="w-12"><i class="fa fa-wrench"></i></th>
                             <th>Nama Produk</th>
+                            <th>Gambar</th>
                             <th>Stok</th>
                             <th>Harga</th>
                             <th>Ukuran</th>
@@ -50,10 +52,11 @@
                         @foreach ($products as $item)
                             <tr>
                                 <td>
-                                        <a href="/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-                                        <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                        <a href="{{ url('/edit/'.$item->id_product) }}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                        <a href="{{ url('/delete/'.$item->id_product) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
                                 <td>{{ $item ->nama_produk}}</td>
+                                <td><img class="card-img-top" src="{{ $item->gambar }}" alt="..." style="width: 100px; height: 100px;"/></td>
                                 <td>{{ $item ->stok}}</td>
                                 <td>{{ $item ->harga}}</td>
                                 <td>{{ $item ->ukuran}}</td>

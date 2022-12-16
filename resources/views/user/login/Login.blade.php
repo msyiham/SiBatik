@@ -293,6 +293,7 @@ input[type=password]:placeholder {
 </style>
 
 <div class="wrapper fadeInDown">
+  @include('sweetalert::alert')
   <div id="formContent">
     <!-- Tabs Titles -->
 

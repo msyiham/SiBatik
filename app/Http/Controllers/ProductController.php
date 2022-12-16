@@ -7,6 +7,7 @@ use App\Models\ProductVarian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductController extends Controller
 {
@@ -73,6 +74,7 @@ class ProductController extends Controller
             
         ]);
         if ($validator->fails()) {
+            
             return redirect('/product/create')->withErrors($validator)->withInput();
         }else {
             $extFile = $request->gambar->getClientOriginalExtension();
@@ -88,6 +90,7 @@ class ProductController extends Controller
                 "keterangan" =>$request->keterangan,
                 "created_at" => now()
             ]);
+            Alert::success('Yeay','Produk berhasil ditambahkan.');
             return redirect()->route('products.index');
         }
     }
@@ -100,7 +103,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        
+ 
     }
 
     /**
@@ -109,9 +112,10 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id_product)
     {
-        //
+        $product = Product::where('id_product',$id_product)->first();
+        return view('admin.isi.updateproduk',['selected'=>$product]);
     }
 
     /**
@@ -121,9 +125,50 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request,$id_product)
     {
-        // $product = ProductModel::where('id_santri', $request->id_santri);
+        $validator = Validator::make($request->all(),
+        [
+            'nama_produk' => 'required',
+            'stok' => 'required',
+            'harga' => 'required',
+            'ukuran' => 'required',
+            'keterangan' => 'required',
+            'gambar' => 'nullable|file|mimes:jpg,png|max:5000'
+        ],
+        [
+            'required' =>':attribute wajib diisi.',
+            'mimes' =>':attribute harus gambar jpg/png.',
+            'max' => 'ukuran :attribute terlalu besar'
+            
+        ]);
+        if ($validator->fails()) {
+            return redirect('/product/create')->withErrors($validator)->withInput();
+        }else{
+            $result = Product::where('id_product',$id_product)->first();
+
+            if(!empty($request->gambar)){
+                $product = Product::where('id_prdouct', $request->id_product);
+                $extFile = $request->gambar->getClientOriginalExtension();
+                $namaFile = 'product-'.time().".".$extFile;
+                $path = $request->gambar->move('image',$namaFile);
+                $pathBaru = asset('image/'.$namaFile);
+            }else{
+                $pathBaru = $result->gambar;
+            }
+
+            $result->update([
+                "nama_produk" => $request->nama_produk,
+                "stok" =>$request->stok,
+                "harga" =>$request->harga,
+                "ukuran" =>$request->ukuran,
+                "gambar" =>$pathBaru,
+                "keterangan" =>$request->keterangan,
+                "created_at" => now()
+            ]);
+            Alert::success('Yeay','Produk berhasil diperbarui.');
+            return redirect()->route('products.index');
+        // $product = Product::where('id_prdouct', $request->id_product);
         // $extFile = $request->gambar->getClientOriginalExtension();
         // $namaFile = 'product-'.time().".".$extFile;
         // $path = $request->gambar->move('image',$namaFile);
@@ -135,7 +180,9 @@ class ProductController extends Controller
         //     "ukuran" =>$request->ukuran,
         //     "gambar" =>$pathBaru,
         //     "keterangan" =>$request->keterangan,
-        //   ]);
+        // ]);
+
+        }
     }
 
     /**
@@ -144,8 +191,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id_product)
     {
-        //
+        $items = Product::where('id_product',$id_product)->first();
+        $items->delete();
+        Alert::success('Yeay','Produk berhasil dihapus.');
+        return redirect()->back();
     }
 }
