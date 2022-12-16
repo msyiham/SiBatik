@@ -40,6 +40,7 @@
                         <tr>
                             <th class="w-12"><i class="fa fa-wrench"></i></th>
                             <th>Nama Produk</th>
+                            <th>Gambar</th>
                             <th>Stok</th>
                             <th>Harga</th>
                             <th>Ukuran</th>
@@ -54,6 +55,7 @@
                                         <a href="{{ url('/delete/'.$item->id_product) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
                                 <td>{{ $item ->nama_produk}}</td>
+                                <td><img class="card-img-top" src="{{ $item->gambar }}" alt="..." style="width: 100px; height: 100px;"/></td>
                                 <td>{{ $item ->stok}}</td>
                                 <td>{{ $item ->harga}}</td>
                                 <td>{{ $item ->ukuran}}</td>
