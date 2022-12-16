@@ -58,7 +58,7 @@
         <div class="row">
             <div class="col-12">
                 <a href="{{ route('cart.clearAllCart') }}" class="btn btn-warning">Hapus Semua</a>
-                <a href="{{ route('history') }}" class="btn btn-primary">Checkout</a>
+                <a href="{{ route('cart.checkout') }}" class="btn btn-primary">Checkout</a>
             </div>
         </div>
     </div>

@@ -73,7 +73,6 @@ class CartController extends Controller
     public function shop($id)
     {
     	$barang = Barang::where('id', $id)->first();
-
     	return view('pesan.index', compact('barang'));
     }
     public function pesan(Request $request, $id)
@@ -166,6 +165,6 @@ class CartController extends Controller
         ]);
 
         \Cart::clear();
-        return redirect()->back();
+        return redirect()->route('history');
     }
 }
