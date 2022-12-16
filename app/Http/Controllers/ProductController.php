@@ -16,6 +16,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        $this->view = 'user.page.shop';
+        $this->Product = new Product();
+    } 
     public function index()
     {
         $data = Product::paginate(3);
@@ -24,16 +28,20 @@ class ProductController extends Controller
     }
     
     public function shop()
-    {
-        // $data = DB::table('produkvarian')
-        // ->join('products', 'produkvarian.id_product', '=', 'products.id_product')
-        // ->select('products.nama_produk', 'products.jenis', 'produkvarian.ukuran', 'produkvarian.harga', 'produkvarian.stok')
-        // ->get();
-        // $users = User::join('posts', 'posts.user_id', '=', 'users.id')
-        //       ->join('comments', 'comments.post_id', '=', 'posts.id')
-        //       ->get(['users.*', 'posts.descrption']);
-        $products = Product::all();
-        return view('user.page.shop',['products'=>$products]);
+    {   $products = $this->Product;
+        $products = $products->paginate(2);
+
+        $recent_product = $this->Product;
+        $recent_product = $recent_product->orderBy('created_at', 'desc')->take(1)->get();
+
+        
+        $data = [
+            'products' => $products,
+            'recent_product' => $recent_product,
+        ];
+        return view($this->view,$data);
+        // $products = Product::all();
+        // return view('user.page.shop',['products'=>$products]);
     }
     public function buy(Product $products)
     {

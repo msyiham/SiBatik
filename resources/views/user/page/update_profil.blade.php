@@ -7,7 +7,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header" style="background-color: rgb(21, 24, 24);">
-                        Update Profile
+                        Perbarui Profile
                     </div>
 
                     <div class="card-body" style="background-color: rgb(71, 82, 82);">
@@ -87,7 +87,7 @@
                             <div class="form-group row mb-0 mt-2">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Update Profile
+                                        Perbarui Profil
                                     </button>
                                 </div>
                             </div>

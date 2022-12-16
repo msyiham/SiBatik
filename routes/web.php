@@ -31,7 +31,6 @@ Route::get('/', function () {
     return view('user.page.home');
 });
 
-Route::get('/nyobak', [App\Http\Controllers\DashboardController::class,'totalPemesan']);
 
 Route::get('/shop', [App\Http\Controllers\ProductController::class,'shop'])
     ->name('shop');
