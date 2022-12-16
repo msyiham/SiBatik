@@ -112,7 +112,7 @@ class ProductController extends Controller
     public function edit($id_product)
     {
         $product = Product::where('id_product',$id_product)->first();
-        return view('admin.isi.edit',['selected'=>$product]);
+        return view('admin.isi.updateproduk',['selected'=>$product]);
     }
 
     /**
