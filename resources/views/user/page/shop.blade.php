@@ -43,6 +43,12 @@
   </div>
 
   <h2 class="text-white text-center">All Product</h2>
+  {{-- <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" method="GET" action="{{ url('shop/cari') }}">
+    <div class="input-group">
+        <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" value="{{ old('search') }}"/>
+        <button class="btn btn-primary" id="btnNavbarSearch" type="sumbit"><i class="fa fa-search"></i></button>
+    </div>
+  </form> --}}
   <div class="row justify-content-center mt-2 mb-2">
     
     @forelse ($products as $item)
@@ -80,9 +86,9 @@
     <br>
     <br>
   </div>
-  <div class="row justify-content-center">
-    <div class="col col-sm-6 col-xs-6 text-white" style="align-content: center;">Data Per Halaman : <b>{{ $products->perPage() }}</b> Dari : <b>{{ $products->total() }}</b> Data Product</div>
-    <div class="col-sm-6 col-xs-6">
+  <div class="row justify-content-center text-center">
+    <div class="col col-sm-6 xs-6 text-white ms-auto">Product Per Halaman : <b>{{ $products->perPage() }}</b> Dari : <b>{{ $products->total() }}</b> Data Product</div>
+    <div class="col-sm-6 xs-6">
       <ul class="pagination hidden-xs">
           {{ $products->links() }}
       </ul>

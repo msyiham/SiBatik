@@ -34,6 +34,8 @@ Route::get('/', function () {
 
 Route::get('/shop', [App\Http\Controllers\ProductController::class,'shop'])
     ->name('shop');
+Route::get('/shop/cari', [App\Http\Controllers\ProductController::class,'cari'])
+    ->name('cari.product');
 Route::get('/buy/{products}', [App\Http\Controllers\ProductController::class,'buy'])
     ->name('buy');
 Route::get('/about', [App\Http\Controllers\AboutController::class,'about']);

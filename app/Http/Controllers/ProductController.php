@@ -43,6 +43,20 @@ class ProductController extends Controller
         // $products = Product::all();
         // return view('user.page.shop',['products'=>$products]);
     }
+    // public function cari(Request $request)
+	// {
+	// 	// menangkap data pencarian
+	// 	$cari = $request->cari;
+ 
+    // 		// mengambil data dari table pegawai sesuai pencarian data
+	// 	$products = DB::table('products')
+	// 	->where('nama_produk','like',"%".$cari."%")
+	// 	->paginate();
+ 
+    // 		// mengirim data product$product ke view index
+	// 	return view('user.page.shop',['products' => $products]);
+
+	// }
     public function buy(Product $products)
     {
         

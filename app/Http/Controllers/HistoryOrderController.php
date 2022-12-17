@@ -26,7 +26,7 @@ class HistoryOrderController extends Controller
     	$order_details = OrderDetail::where('order_id', $order->id)->get();
 
         // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = 'Mid-server-5cFjqExXW_Odq-JNcUdE9kA5';
+        \Midtrans\Config::$serverKey = 'Mid-server-NRq6CiAHyAnNQ9Un9AAoN6E1';
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
         \Midtrans\Config::$isProduction = true;
         // Set sanitization on (default)
