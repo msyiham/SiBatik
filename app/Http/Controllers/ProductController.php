@@ -29,10 +29,10 @@ class ProductController extends Controller
     
     public function shop()
     {   $products = $this->Product;
-        $products = $products->paginate(2);
+        $products = $products->paginate(4);
 
         $recent_product = $this->Product;
-        $recent_product = $recent_product->orderBy('created_at', 'desc')->take(1)->get();
+        $recent_product = $recent_product->orderBy('created_at', 'desc')->take(3)->get();
 
         
         $data = [

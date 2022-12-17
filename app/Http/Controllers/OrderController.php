@@ -19,6 +19,7 @@ class OrderController extends Controller
         public function orderDetail($id){
             $order = Order::where('user_id', $id)->first();
     	    $order_detail = OrderDetail::where('order_id', $order->id)->get();
+    	    $product = OrderDetail::where('order_id', $order->id)->get();
             $user = User::where('id', $id)->first();
             // $order = DB::table('users')
             // ->join('orders', 'users.id', '=', 'orders.user_id')
@@ -40,7 +41,7 @@ class OrderController extends Controller
             //                 })
             //     ->select('*')
             //     ->get();
-            $order_detail = DB::table('products')
+            $product = DB::table('products')
             ->join('order_details', 'products.id', '=', 'order_details.product_id')
             ->select('order_details.*', 'products.nama_produk', 'products.gambar')
             ->get();

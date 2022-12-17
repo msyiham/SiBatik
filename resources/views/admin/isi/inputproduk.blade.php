@@ -41,7 +41,7 @@
                     </div>
                     <div class="m-2">
                       {{-- harga Product --}}
-                        <label class="form-label" for="harga">Harga/Meter</label>
+                        <label class="form-label" for="harga">Harga</label>
                         <input class="form-control" type="text" name="harga">
                         @error('harga')
                         <div class="text-danger">{{ $message }}</div>
@@ -64,14 +64,13 @@
                         @enderror
                     </div>
                       {{-- Keterangan --}}
-                    <div class="m-2">
-                      <label class="form-label" for="keterangan">Keterangan</label>
-                      <input id="keterangan" value="Editor content goes here" type="hidden" name="keterangan">
-                      <trix-editor input="keterangan"></trix-editor>
-                      @error('keterangan')
-                      <div class="text-danger">{{ $message }}</div>
-                      @enderror
-                    </div>
+                      <div class="m-2">
+                        <label class="form-label" for="keterangan">Keterangan</label>
+                        <textarea name="keterangan" class="form-control summernote"></textarea>
+                        @error('keterangan')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                      </div>
                     {{-- Upload Gambar --}}
                     <div class="m-2">
                       <label class="form-label" for="gambar">Upload Gambar</label>

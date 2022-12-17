@@ -26,8 +26,8 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Gambar</th>
-                                <th>Nama Barang</th>
+                                {{-- <th>Gambar</th>
+                                <th>Nama Barang</th> --}}
                                 <th>Jumlah</th>
                                 <th>Harga</th>
                                 <th>Total</th>
@@ -39,8 +39,8 @@
                             @foreach($order_details as $order_detail)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td><img src="{{ $order_detail->gambar }}" alt="" style="width: 100px; height: 100px;"></td>
-                                <td>{{ $order_detail->nama_produk }}</td>
+                                {{-- <td><img src="{{ $order_detail->gambar }}" alt="" style="width: 100px; height: 100px;"></td>
+                                <td>{{ $order_detail->nama_produk }}</td> --}}
                                 <td>{{ $order_detail->quantity }} kain</td>
                                 <td>Rp. {{ number_format($order_detail->price) }}</td>
                                 <td><strong>Rp. {{ number_format($order->total) }}</strong></td>

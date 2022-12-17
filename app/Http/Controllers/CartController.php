@@ -140,6 +140,7 @@ class CartController extends Controller
     {
         $cartItems = \Cart::getContent();
         
+        
         $order = Order::create([
             'trx_id' => "TRX".date('YmdHis'),
             'user_id' => Auth::user()->id,
@@ -157,12 +158,26 @@ class CartController extends Controller
                 'total' => $row->attributes->subtotal,
             ]);
 
+            
             $total += $row->attributes->subtotal;
+            
+            
         }
-
+        foreach($cartItems as $index => $row){
+            $product = Product::where('id', $row->id)->first();
+            $hasil = $product->stok-$row->quantity;
+            $product->update([
+                    'stok' => $hasil,
+            ]);
+            
+            
+        }
+        
         $order->update([
             'total' => $total,
         ]);
+
+        
 
         \Cart::clear();
         return redirect()->route('history');
