@@ -50,6 +50,7 @@ Route::get('/logout', [App\Http\Controllers\LoginController::class,'logout'])
 Route::post('/login', [App\Http\Controllers\LoginController::class,'authenticate'])
     ->name('proses.login');
 
+
 //halaman admin
 Route::get('/admin',[App\Http\Controllers\AdminController::class,function(){
     return redirect("Dashbord");
@@ -104,6 +105,7 @@ Route::group(["middleware" => ["auth","middleware" => "role:".User::ROLE_USER]],
     ->name('history');
     Route::get('/history-detail/{id}', [HistoryOrderController::class,'detail'])
     ->name('history.detail');
+
 
     // Route::get('/back', [HistoryOrderController::class,'back'])
     // ->name('back');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\User;
 use App\Models\OrderDetail;
 use Auth;
 class HistoryOrderController extends Controller
@@ -22,11 +23,12 @@ class HistoryOrderController extends Controller
 
     public function detail($id)
     {
+        $user = User::where('id',$id)->first();
     	$order = Order::where('id', $id)->first();
     	$order_details = OrderDetail::where('order_id', $order->id)->get();
 
         // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = 'Mid-server-NRq6CiAHyAnNQ9Un9AAoN6E1';
+        \Midtrans\Config::$serverKey = 'Mid-server-VJEXjzd_4rSvtNo6HFFr6prJ';
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
         \Midtrans\Config::$isProduction = true;
         // Set sanitization on (default)
@@ -36,14 +38,13 @@ class HistoryOrderController extends Controller
         
         $params = array(
             'transaction_details' => array(
-                'order_id' => rand(),
-                'gross_amount' => 10000,
+                'user_id' => $order,
+                'total' => $order,
             ),
             'customer_details' => array(
-                'first_name' => 'budi',
-                'last_name' => 'pratama',
-                'email' => 'budi.pra@example.com',
-                'phone' => '08111222333',
+                'nama' => $user,
+                'email' => $user,
+                'telepon' => $user,
             ),
         );
         

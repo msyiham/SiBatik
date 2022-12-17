@@ -1,6 +1,6 @@
 <div class="sub_page">
     <div class="hero_area">
-        <div class="bg-box">
+        <div class="bg-box ">
           <img src="{{ URL::to('/') }}/images/home copy.png" alt="">
         </div>
         <!-- header section strats -->
