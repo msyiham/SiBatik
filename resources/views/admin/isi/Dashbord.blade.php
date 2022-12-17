@@ -35,7 +35,7 @@
     <div class="row">
         <div class="card bg-success col-md-4 a" style="width: 18rem; height:10rem;">
             <div class="card-body-icon">
-                <i class="fa-regular fa-credit-card bg-success"></i>
+                <i class="fas fa-shirt bg-success"></i>
             </div>
             <div class="card-body">
               <h5 class="card-title text-white">Total Produk</h5>
@@ -57,7 +57,7 @@
           </div>
         <div class="card bg-warning col-md-4" style="width: 18rem; height:10rem;">
             <div class="card-body-icon">
-                <i class="fa-solid fa-bag-shopping"></i>
+                <i class="fa-solid fa-shopping-cart"></i>
             </div>
             <div class="card-body">
               <h5 class="card-title text-white">Jumlah Pesanan</h5>
@@ -72,7 +72,7 @@
             <div class="row">
                 <div class="col col-sm-6 col-xs-12">
                  
-                    <h4 class="">Data List</h4>
+                    <h4 class="">Data Pesanan</h4>
                  
                 </div>
                 {{-- <div class="col-sm-6 col-xs-12 text-right">
