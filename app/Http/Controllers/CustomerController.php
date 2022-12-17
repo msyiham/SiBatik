@@ -16,8 +16,12 @@ class CustomerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $users = User::paginate(3);
+    {   
+        $this->User = new User();
+        $users = $this->User;
+        $users = $users->role(User::ROLE_USER)->paginate(3);
+        // $users->paginate(3);
+        
         return view('admin\isi.Customer',['customers'=>$users]);
     }
 

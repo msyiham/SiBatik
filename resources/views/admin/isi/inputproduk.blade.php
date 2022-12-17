@@ -33,9 +33,7 @@
                           <div class="col-2">
                             <input class="form-control" type="text" name="stok">
                           </div>
-                          <div class="col">
-                            <span>Meter X 1 Meter</span>
-                          </div>
+                          
                         </div>
                         @error('stok')
                         <div class="text-danger">{{ $message }}</div>

@@ -141,7 +141,7 @@
                                 <tr>
                                     {{-- <th class="w-4"><input type="checkbox"></th>
                                     <th class="w-12"><i class="fa fa-wrench"></i></th> --}}
-                                    <th>Aksi</i></th>
+                                    
                                     <th>Nama</th>
                                     <th>Email</th>
                                     <th>Nomor Telepon</th>
@@ -161,9 +161,7 @@
                                             {{ url('user-detail') }}/{{ $user->id }}
 
                                         </td> --}}
-                                        <td>
-                                            <a href="" class="btn btn-primary"><i class="fa fa-eye"></i></a>
-                                        </td>
+                                        
                                         <td>{{ $item ->nama}}</td>
                                         <td>{{ $item ->email}}</td>
                                         <td>{{ $item ->telepon}}</td>
