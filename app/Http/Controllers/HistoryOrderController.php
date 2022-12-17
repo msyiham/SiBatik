@@ -6,9 +6,19 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\User;
 use Auth;
+// use App\Veritrans\Veritrans;
+use Illuminate\Support\Facades\DB;
 class HistoryOrderController extends Controller
 {
+    public function __construct(){
+        $this->view = 'user.page.historydetail';
+        // Veritrans::$serverKey = 'Mid-server-VJEXjzd_4rSvtNo6HFFr6prJ';
+        // Veritrans::$isProduction = false;
+        // $this->User = new User();
+        // $this->OrderDetail = new OrderDetail();
+    }
     public function index()
     {
     	$orders = Order::where('user_id', Auth::user()->id)->get();
@@ -22,11 +32,17 @@ class HistoryOrderController extends Controller
 
     public function detail($id)
     {
+        $user = User::findOrFail(Auth::id());
     	$order = Order::where('id', $id)->first();
     	$order_details = OrderDetail::where('order_id', $order->id)->get();
 
+        $order_details = DB::table('products')
+            ->join('order_details', 'products.id', '=', 'order_details.product_id')
+            ->select('order_details.*', 'products.nama_produk', 'products.gambar')
+            ->get();
+
         // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = 'Mid-server-NRq6CiAHyAnNQ9Un9AAoN6E1';
+        \Midtrans\Config::$serverKey = 'Mid-server-VJEXjzd_4rSvtNo6HFFr6prJ';
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
         \Midtrans\Config::$isProduction = true;
         // Set sanitization on (default)
@@ -36,18 +52,25 @@ class HistoryOrderController extends Controller
         
         $params = array(
             'transaction_details' => array(
-                'order_id' => rand(),
-                'gross_amount' => 10000,
+                'user_id' => $user->id,
+                'total' => $order->total,
             ),
             'customer_details' => array(
-                'first_name' => 'budi',
-                'last_name' => 'pratama',
-                'email' => 'budi.pra@example.com',
-                'phone' => '08111222333',
+                'nama' => $user->nama,
+                'email' => $user->email,
+                'telepon' => $user->telepon,
             ),
         );
         
+
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-                return view('user.page.historydetail',['snapToken'=>$snapToken, 'order'=>$order, 'order_details'=>$order_details]);
+        
+        $data = [
+            'order' => $order,
+            'order_details' => $order_details,
+            'snapToken'=>$snapToken,
+        ];
+        return view($this->view,$data);
+        return view('user.page.historydetail',['snapToken'=>$snapToken, 'order'=>$order, 'order_details'=>$order_details]);
     }
 }
