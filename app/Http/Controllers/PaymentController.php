@@ -20,13 +20,12 @@ class PaymentController extends Controller
             $params = array(
                 'transaction_details' => array(
                     'order_id' => rand(),
-                    'gross_amount' => 10000,
+                    'gross_amount' => $order->total,
                 ),
                 'customer_details' => array(
-                    'first_name' => 'budi',
-                    'last_name' => 'pratama',
-                    'email' => 'budi.pra@example.com',
-                    'phone' => '08111222333',
+                    'nama' => auth()->user()-nama,
+                    'email' => auth()->user()->email,
+                    'phone' => auth()->user()->telepon,
                 ),
             );
             

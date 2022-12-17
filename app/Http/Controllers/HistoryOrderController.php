@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
-use App\Models\User;
 use App\Models\OrderDetail;
 use Auth;
 class HistoryOrderController extends Controller
@@ -23,7 +22,6 @@ class HistoryOrderController extends Controller
 
     public function detail($id)
     {
-        $user = User::where('id',$id)->first();
     	$order = Order::where('id', $id)->first();
     	$order_details = OrderDetail::where('order_id', $order->id)->get();
 
@@ -38,13 +36,13 @@ class HistoryOrderController extends Controller
         
         $params = array(
             'transaction_details' => array(
-                'user_id' => $order,
-                'total' => $order,
+                'order_id' => rand(),
+                'gross_amount' => $order->total,
             ),
             'customer_details' => array(
-                'nama' => $user,
-                'email' => $user,
-                'telepon' => $user,
+                'nama' => auth()->user()->nama,
+                'email' => auth()->user()->email,
+                'phone' => auth()->user()->telepon,
             ),
         );
         
