@@ -59,10 +59,6 @@
                 <div class="card-body">
                     @if($order->status == 0)
                     <button class="btn btn-warning" id="pay-button">Bayar Sekarang</button>
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/main
                     @endif
                 </div>
 
