@@ -86,9 +86,16 @@
     <br>
     <br>
   </div>
-  <div class="row justify-content-center text-center">
-    <div class="col col-sm-6 xs-6 text-white ms-auto">Product Per Halaman : <b>{{ $products->perPage() }}</b> Dari : <b>{{ $products->total() }}</b> Data Product</div>
+  <div class="col col-sm-6 xs-6  pull-right right">
+    
+  </div>
+  <div class="row justify-content-center text-white">
+
+    
     <div class="col-sm-6 xs-6">
+      <p clas="text-white">
+        Product Per Halaman : <b>{{ $products->perPage() }}</b> Dari : <b>{{ $products->total() }}</b> Data Product
+      </p>
       <ul class="pagination hidden-xs">
           {{ $products->links() }}
       </ul>
