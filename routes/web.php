@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\HistoryOrderController;
 use App\Models\User;
 /*
@@ -54,6 +55,7 @@ Route::get('/admin',[App\Http\Controllers\AdminController::class,function(){
     return redirect("Dashbord");
 }]); 
 Route::get('/Dashbord', [App\Http\Controllers\DashboardController::class,'index']);
+Route::get('/order-detail/{id}', [App\Http\Controllers\OrderController::class,'orderDetail']);
 // Route::get('/Customer', [App\Http\Controllers\AdminController::class,'customer']);
 // Route::get('/Produk', [App\Http\Controllers\AdminController::class,'product']);
 Route::get('/edit', [App\Http\Controllers\AdminController::class,'editproduct']);

@@ -52,8 +52,8 @@
                         @foreach ($products as $item)
                             <tr>
                                 <td>
-                                        <a href="{{ url('/edit/'.$item->id_product) }}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-                                        <a href="{{ url('/delete/'.$item->id_product) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                        <a href="{{ url('/edit/'.$item->id) }}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                        <a href="{{ url('/delete/'.$item->id) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
                                 <td>{{ $item ->nama_produk}}</td>
                                 <td><img class="card-img-top" src="{{ $item->gambar }}" alt="..." style="width: 100px; height: 100px;"/></td>

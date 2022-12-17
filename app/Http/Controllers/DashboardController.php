@@ -7,14 +7,15 @@ use App\Models\Product;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\User;
-
+use Illuminate\Support\Facades\DB;
 class DashboardController extends Controller
 {
     public function __construct(){
         $this->view = 'admin.isi.Dashbord';
         $this->User = new User();
         $this->Order = new Order();
-    }    
+        $this->Product = new Product();
+    }
     public function index(){
         $total_user = $this->User;
         $total_user = $total_user->role(User::ROLE_USER);
@@ -23,10 +24,19 @@ class DashboardController extends Controller
         $total_pesanan = $this->Order;
         $total_pesanan = $total_pesanan->count();
 
+        $total_product = $this->Product;
+        $total_product = $total_product->count();
+
+        $order = DB::table('orders')
+        ->join('users', 'users.id', '=', 'orders.user_id')
+        ->select('users.*', 'orders.total', 'orders.status')
+        ->get();
 
         $data = [
             'total_user' => $total_user,
             'total_pesanan' => $total_pesanan,
+            'total_product' => $total_product,
+            'order' => $order,
         ];
         return view($this->view,$data);
     }

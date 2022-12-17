@@ -59,7 +59,6 @@ class ProductController extends Controller
 	// }
     public function buy(Product $products)
     {
-        
         return view('user.page.buy',['products'=>$products]);
     }
     /**
@@ -136,7 +135,7 @@ class ProductController extends Controller
      */
     public function edit($id_product)
     {
-        $product = Product::where('id_product',$id_product)->first();
+        $product = Product::where('id',$id_product)->first();
         return view('admin.isi.updateproduk',['selected'=>$product]);
     }
 
@@ -167,10 +166,10 @@ class ProductController extends Controller
         if ($validator->fails()) {
             return redirect('/product/create')->withErrors($validator)->withInput();
         }else{
-            $result = Product::where('id_product',$id_product)->first();
+            $result = Product::where('id',$id_product)->first();
 
             if(!empty($request->gambar)){
-                $product = Product::where('id_prdouct', $request->id_product);
+                $product = Product::where('id', $request->id);
                 $extFile = $request->gambar->getClientOriginalExtension();
                 $namaFile = 'product-'.time().".".$extFile;
                 $path = $request->gambar->move('image',$namaFile);
@@ -215,7 +214,7 @@ class ProductController extends Controller
      */
     public function destroy($id_product)
     {
-        $items = Product::where('id_product',$id_product)->first();
+        $items = Product::where('id',$id_product)->first();
         $items->delete();
         Alert::success('Yeay','Produk berhasil dihapus.');
         return redirect()->back();

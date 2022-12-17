@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 <h3 class="mt-3" style="margin-left: 25px" ><i class="fa-solid fa-table"></i> Edit Produk </h3>
     <hr>
-<form action="{{ url('/update/'.$selected->id_product) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ url('/update/'.$selected->id) }}" method="POST" enctype="multipart/form-data">
   @method('PATCH')
   @csrf
   <div class="pt-2 mb-5" style="margin-top: 10px;">

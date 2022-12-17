@@ -265,7 +265,7 @@
 <script>
     $(function(){
         $(document).on("click",".btn-buy-now",function(){
-            let product_id = '{{ $products->id_product }}';
+            let product_id = '{{ $products->id }}';
             let name = '{{ $products->nama_produk }}';
             let price = '{{ $products->harga }}';
             let image = '{{ $products->gambar }}';

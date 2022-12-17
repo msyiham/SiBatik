@@ -38,10 +38,10 @@
                 <i class="fa-regular fa-credit-card bg-success"></i>
             </div>
             <div class="card-body">
-              <h5 class="card-title text-white">Total Pemasukan</h5>
-              <div class="display-6 text-white">Rp.1000.000</div>
+              <h5 class="card-title text-white">Total Produk</h5>
+              <div class="display-6 text-white">{{ $total_product }}</div>
               <br>
-              <a href="#"><p class="card-text text-white"> lihat detail <i class="fas fa-angle-double-right"></i> </p></a>
+              <a href="/Produk"><p class="card-text text-white"> lihat detail <i class="fas fa-angle-double-right"></i> </p></a>
             </div>
           </div>
         <div class="card bg-danger col-md-4 b" style="width: 18rem; height:10rem;">
@@ -52,7 +52,7 @@
               <h5 class="card-title text-white">Jumlah User</h5>
               <div class="display-6 text-white">{{ $total_user }}</div>
               <br>
-              <a href="#"><p class="card-text text-white"> lihat detail <i class="fas fa-angle-double-right"></i> </p></a>
+              <a href="/Customer"><p class="card-text text-white"> lihat detail <i class="fas fa-angle-double-right"></i> </p></a>
             </div>
           </div>
         <div class="card bg-warning col-md-4" style="width: 18rem; height:10rem;">
@@ -63,7 +63,7 @@
               <h5 class="card-title text-white">Jumlah Pesanan</h5>
               <div class="display-6 text-white">{{ $total_pesanan }}</div>
               <br>
-              <a href="#"><p class="card-text text-white"> lihat detail <i class="fas fa-angle-double-right"></i> </p></a>
+              {{-- <a href="#"><p class="card-text text-white"> lihat detail <i class="fas fa-angle-double-right"></i> </p></a> --}}
             </div>
           </div>
     </div>
@@ -89,23 +89,24 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Order Id</th>
-                            <th>Product Id</th>
-                            <th>Harga Produk</th>
-                            <th>Jumlah Order</th>
+                            <th>Aksi</th>
+                            <th>Nama Pemesan</th>
+                            <th>Alamat</th>
+                            <th>No. Telepon</th>
                             <th>Total Harga</th>
                         </tr>
                     </thead>
                     <tbody class="text-center">
-                        {{-- @foreach ($order as $item)
+                        @foreach ($order as $item)
                             <tr>
-                                <td>{{ $item ->order_id}}</td>
-                                <td>{{ $item ->product_id}}</td>
-                                <td>{{ $item ->price}}</td>
-                                <td>{{ $item ->quantity}}</td>
+                                <td><a href="{{ url('order-detail') }}/{{ $item->id }}" class="btn btn-primary"><i class="fa fa-eye"></i></a></td>
+                                <td>{{ $item ->nama}}</td>
+                                <td>{{ $item ->alamat}}</td>
+                                <td>{{ $item ->telepon}}</td>
                                 <td>{{ $item ->total}}</td>
+                                {{-- <td>{{ $item ->status}}</td> --}}
                             </tr>
-                        @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
             </div>
