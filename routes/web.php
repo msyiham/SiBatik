@@ -53,14 +53,7 @@ Route::post('/login', [App\Http\Controllers\LoginController::class,'authenticate
 
 
 //halaman admin
-Route::get('/admin',[App\Http\Controllers\AdminController::class,function(){
-    return redirect("Dashbord");
-}]); 
-Route::get('/Dashbord', [App\Http\Controllers\DashboardController::class,'index']);
-Route::get('/order-detail/{id}', [App\Http\Controllers\OrderController::class,'orderDetail']);
-// Route::get('/Customer', [App\Http\Controllers\AdminController::class,'customer']);
-// Route::get('/Produk', [App\Http\Controllers\AdminController::class,'product']);
-Route::get('/edit', [App\Http\Controllers\AdminController::class,'editproduct']);
+
 
 
 //crud customer
@@ -68,13 +61,11 @@ Route::get('/customers/regis', [CustomerController::class,'create'])
     ->name('customers.create');
 Route::post('/customers', [CustomerController::class,'store'])
     ->name('customers.store');
-Route::get('/Customer', [CustomerController::class,'index'])
-    ->name('customers.index');
+
 // Route::resource('customers', CustomerController::class);
 
 //crud product
-Route::get('/Produk', [ProductController::class,'index'])
-    ->name('products.index');
+
 Route::get('/product/create', [ProductController::class,'create'])
     ->name('products.create');
 Route::post('/product', [ProductController::class,'store'])
@@ -120,4 +111,16 @@ Route::group(["middleware" => ["auth","middleware" => "role:".User::ROLE_USER]],
     Route::get('email/verify/need-verification',[VerificationController::class,'notice'])->middleware('auth')->name('verification.notice');
     Route::get('email/verify/{id}/{hash}',[VerificationController::class,'verify'])->middleware(['auth','signed'])->name('verification.verify');
 
+});
+Route::group(["middleware" => ["auth","middleware" => "role:".User::ROLE_ADMIN]],function(){
+    Route::get('/Customer', [CustomerController::class,'index'])
+    ->name('customers.index');
+    Route::get('/Produk', [ProductController::class,'index'])
+    ->name('products.index');
+    Route::get('/admin',[App\Http\Controllers\AdminController::class,function(){
+        return redirect("Dashbord");
+    }]); 
+    Route::get('/Dashbord', [App\Http\Controllers\DashboardController::class,'index']);
+    Route::get('/order-detail/{id}', [App\Http\Controllers\OrderController::class,'orderDetail']);
+    Route::get('/edit', [App\Http\Controllers\AdminController::class,'editproduct']);
 });
