@@ -4,10 +4,10 @@
 
 <body style=" background-color: #222831;">
   <h2 class="text-white text-center">Recent Product</h2>
-  <div class="row justify-content-center mt-2 mb-3">
+  <div class="row justify-content-center mt-2 mb-3 ms-1 me-2">
     
     @forelse ($recent_product as $item)
-    <div class="col-md-3 mb-5">
+    <div class="col-md-3 sm-5 mb-5">
       <div class="card h-100">
           <img class="card-img-top" src="{{ $item->gambar }}" alt="..." />
           <!-- Product details-->
@@ -49,10 +49,10 @@
         <button class="btn btn-primary" id="btnNavbarSearch" type="sumbit"><i class="fa fa-search"></i></button>
     </div>
   </form> --}}
-  <div class="row justify-content-center mt-2 mb-2">
+  <div class="row justify-content-center ms-1 me-2 mt-2 mb-2">
     
     @forelse ($products as $item)
-    <div class="col-md-3 mb-2">
+    <div class="col-md-3 sm-5 mb-2">
       <div class="card h-100">
           <img class="card-img-top" src="{{ $item->gambar }}" alt="..." />
           <!-- Product details-->
