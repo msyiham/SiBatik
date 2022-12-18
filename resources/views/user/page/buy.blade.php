@@ -227,19 +227,22 @@
                         <hr class="singleline">
                         <div> <span class="product_info">{!! $products['keterangan'] !!}<span></div>
                         <div><b><span class="">Stok<span></b></div>
-                        <div> <span class="product_info">{{ $products->stok }}<span></div>
+                        <div> <span class="product_info">{{ $products->stok }}<span> </div>
                         <input type="hidden" name="harga" value="{{ $products->stok }}">
                         <div><b><span class="">Ukuran<span></b></div>
                             <div> <span class="size">{{ $products->ukuran }} x 1 meter<span></div>
                         <hr class="singleline">
                         <div class="row">
                             <div class="col-xs-6 ">
+                                {{-- @if($products->stok == 0) --}}
+
                                     <b><label for="quantity">Jumlah</label></b>
-                                    <input class="form-control" type="number" name="qty" pattern="[0-9]*" min="1" value="1" style="width: 80px;">    
+                                    <input id="numberbox" class="form-control" type="number" name="qty" pattern="[0-9]*" min="1" max={{ $products->stok }} value="0" style="width: 80px;">    
                             </div>
                             <div class="col-xs-6 mt-4">
                                 @if(Auth::check())
-                                    <button type="button" class="btn btn-success shop-button btn-buy-now">Tambahkan keranjang</button>
+                                @if($products->stok >= 0) <button type="button" class="btn btn-success shop-button btn-buy-now">Tambahkan keranjang</button> @else stok habis @endif
+                                  
                                 @endif
                             </div>
                         </div>
@@ -282,5 +285,13 @@
             $("#frmCart").submit();
         })
     })
+</script>
+<script>
+    $('#numberbox').keyup(function(){
+  if ($(this).val() >= ($products->stok)){
+    alert("Inputan salah");
+    $(this).val($products->stok);
+  }
+});
 </script>
 @endsection
