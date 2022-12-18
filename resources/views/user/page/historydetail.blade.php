@@ -60,7 +60,15 @@
                 <div class="card-body">
                     @if($order->status == 0)
                     <button class="btn btn-warning" id="pay-button">Bayar Sekarang</button>
+                    <form action="" id="sbmt" method="post">
+                        @csrf
+                        <input type="hidden" name="json" id="json_callback">
+                        <input type="hidden" name="uname" value="{{ auth()->user()->nama }}">
+                        <input type="hidden" name="email" value="{{ auth()->user()->email }}">
+                        <input type="hidden" name="id_user" value="{{ auth()->user()->id }}">
+                    </form>
                     @endif
+              
                 </div>
 
             </div>
@@ -68,6 +76,7 @@
         
     </div>
 </div>
+
        
        <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
        <script type="text/javascript">
@@ -79,14 +88,17 @@
             onSuccess: function(result){
               /* You may add your own implementation here */
               alert("payment success!"); console.log(result);
+              send_to_form(result);
             },
             onPending: function(result){
               /* You may add your own implementation here */
               alert("wating your payment!"); console.log(result);
+              send_to_form(result);
             },
             onError: function(result){
               /* You may add your own implementation here */
               alert("payment failed!"); console.log(result);
+              send_to_form(result);
             },
             onClose: function(){
               /* You may add your own implementation here */
@@ -94,5 +106,10 @@
             }
           })
         });
+        function send_to_form(result){
+        document.getElementById('json_callback').value = JSON.stringify(result);
+        $('#sbmt').submit();
+        }
       </script>
+     
 @endsection

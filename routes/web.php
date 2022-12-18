@@ -14,6 +14,8 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\HistoryOrderController;
 use App\Http\Controllers\VerificationController;
 use App\Models\User;
+use Spatie\Permission\Contracts\Role;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,6 +79,9 @@ Route::group(["middleware" => ["auth","middleware" => "role:".User::ROLE_USER]],
     ->name('history');
     Route::get('/history-detail/{id}', [HistoryOrderController::class,'detail'])
     ->name('history.detail');
+    Route::post('/history-detail/{id}', [HistoryOrderController::class,'detail_post'])
+    ->name('history.detail');
+ 
 
 
     // Route::get('/back', [HistoryOrderController::class,'back'])

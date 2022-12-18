@@ -3,7 +3,8 @@
 <head>
   <script type="text/javascript"
   src="https://app.midtrans.com/snap/snap.js"
-  data-client-key="Mid-client-vr5EDqQt3zg2reE5"></script>
+  data-client-key="Mid-client-46BQsiLlJdOXGPXp"></script>
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
