@@ -163,7 +163,7 @@
     
     .single_product {
         padding-top: 16px;
-        padding-bottom: 140px
+        padding-bottom: 16px
     }
     
     .image_selected {
@@ -211,7 +211,7 @@
     
 </style>
 <div class="single_product">
-    <div class="container-fluid" style=" background-color: rgb(136, 131, 131); padding: 11px;">
+    <div class="container-fluid" style=" background-color: rgb(204, 200, 186); padding: 11px;">
         <div class="row">
             <div class="col-lg-4 order-lg-2 order-1">
                 <div class="image_selected"><img src="{{ $products->gambar }}" alt=""></div>
