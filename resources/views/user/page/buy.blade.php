@@ -247,7 +247,7 @@
                             <div class="col-xs-6 mt-4">
                                 @if(Auth::check())
                                     @if(!$products->stok == 0)
-                                    <button type="button" class="btn btn-success shop-button btn-buy-now">Tambahkan keranjang</button>
+                                    <button type="button" class="btn btn-primary shop-button btn-buy-now">Tambahkan keranjang</button>
                                     @endif
                                 @endif
                             </div>
