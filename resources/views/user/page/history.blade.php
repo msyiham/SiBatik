@@ -39,7 +39,7 @@
                                 <td>
                                     <a href="{{ url('history-detail') }}/{{ $pesanan->id }}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
                                     @if($pesanan->status != 0)
-                                    <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                    <a href="{{ url('history-delete') }}/{{ $pesanan->id }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                     @endif
                                 </td>
                             </tr>

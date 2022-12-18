@@ -81,6 +81,8 @@ Route::group(["middleware" => ["auth","middleware" => "role:".User::ROLE_USER]],
     ->name('history.detail');
     Route::post('/history-detail/{id}', [HistoryOrderController::class,'detail_post'])
     ->name('history.detail');
+    Route::get('/history-delete/{id}', [HistoryOrderController::class,'destroy'])
+    ->name('history.delete');
  
 
 

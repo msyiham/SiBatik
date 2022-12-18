@@ -76,6 +76,10 @@ class HistoryOrderController extends Controller
             //return $request;
             //store data json ke db order details
             
+            $status = Order::where('user_id', $request->id_user)->first();
+            $status->update([
+                'status' => 1,
+            ]);
             $nama = User::where('email', $request->get('email'))->first();
             
             $json =  json_decode($request->get('json'));
@@ -93,7 +97,14 @@ class HistoryOrderController extends Controller
             $orders1->user_id = $request->get('id_user');
             $orders1->save();
             alert()->html('Transaksi Berhasil','Terimakasih telah berbelanja pada website kami','success');
-		
+            
+            
 		    return redirect(url('/history'));
+        }
+        public function destroy($id)
+        {
+            $order = Order::findOrFail($id);
+            $order->delete();
+            return redirect()->back();
         }
 }
