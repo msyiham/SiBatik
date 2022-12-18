@@ -25,9 +25,9 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                {{-- <th>Gambar</th>
-                                <th>Nama Barang</th> --}}
+                                
+                                <th>Gambar</th>
+                                <th>Nama Barang</th>
                                 <th>Jumlah</th>
                                 <th>Harga</th>
                                 <th>Total</th>
@@ -35,18 +35,19 @@
                             </tr>
                         </thead>
                         <tbody>
+                            
                             <?php $no = 1; ?>
-                            @foreach($order_details as $order_detail)
+                            
                             <tr>
-                                <td>{{ $no++ }}</td>
-                                {{-- <td><img src="{{ $order_detail->gambar }}" alt="" style="width: 100px; height: 100px;"></td>
-                                <td>{{ $order_detail->nama_produk }}</td> --}}
-                                <td>{{ $order_detail->quantity }} kain</td>
-                                <td>Rp. {{ number_format($order_detail->price) }}</td>
+                                
+                                <td><img src="{{ $product->gambar }}" alt="" style="width: 100px; height: 100px;"></td>
+                                <td>{{ $product->nama_produk }}</td>
+                                <td>{{ $order_details->quantity }} kain</td>
+                                <td>Rp. {{ number_format($order_details->price) }}</td>
                                 <td><strong>Rp. {{ number_format($order->total) }}</strong></td>
                                 
                             </tr>
-                            @endforeach
+                           
                         </tbody>
                     </table>
                     @endif

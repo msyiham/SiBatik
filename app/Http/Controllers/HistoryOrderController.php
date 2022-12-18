@@ -25,9 +25,11 @@ class HistoryOrderController extends Controller
     public function detail($id)
     {
         $user = User::findOrFail(Auth::id());
-    	$order = Order::where('id', $id)->first();
-    	$order_details = OrderDetail::where('order_id', $order->id)->get();
+    	$order = Order::findOrFail($id);
+    	$order_details = OrderDetail::where('order_id', $order->id)->first();
+    	$product = Product::where('id', $order_details->product_id)->first();
 
+        
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = 'Mid-server-VJEXjzd_4rSvtNo6HFFr6prJ';
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
@@ -49,8 +51,11 @@ class HistoryOrderController extends Controller
                 'phone' => auth()->user()->telepon,
             ),
         );
+
+        
+        // dd($order_details);
         
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-                return view('user.page.historydetail',['snapToken'=>$snapToken, 'order'=>$order, 'order_details'=>$order_details]);
+                return view('user.page.historydetail',['snapToken'=>$snapToken, 'order'=>$order, 'product'=>$product,  'order_details'=>$order_details]);
         }
 }
