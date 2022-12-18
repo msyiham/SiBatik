@@ -241,7 +241,7 @@
                                             @if(!$products->stok == 0)
                                             <b><label for="quantity">Jumlah</label></b>
                                             <input id="numberbox" class="form-control" type="number" name="qty" pattern="[0-9]*" min="1" max={{ $products->stok }}
-                                            value="0" style="width: 80px;">    
+                                            value="1" style="width: 80px;">    
                                     @endif 
                             </div>
                             <div class="col-xs-6 mt-4">
