@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class VerificationController extends Controller
 {
     public function notice(){
-        return "Mohon verifikasi email terlebih dahulu";
+        alert()->html('Mohon verifikasi email terlebih dahulu');
+        return redirect('/login');
     }
     public function verify(EmailVerificationRequest $request){
         $request->fulfill();
