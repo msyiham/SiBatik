@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\User;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use Auth;
@@ -13,7 +14,7 @@ class HistoryOrderController extends Controller
     {
     	$orders = Order::where('user_id', Auth::user()->id)->get();
 
-	return view('user.page.history', compact('orders'));
+	    return view('user.page.history', compact('orders'));
     }
 
     // public function back()
@@ -23,6 +24,7 @@ class HistoryOrderController extends Controller
 
     public function detail($id)
     {
+        $user = User::findOrFail(Auth::id());
     	$order = Order::where('id', $id)->first();
     	$order_details = OrderDetail::where('order_id', $order->id)->get();
 
@@ -42,7 +44,7 @@ class HistoryOrderController extends Controller
                 'gross_amount' => $order->total,
             ),
             'customer_details' => array(
-                'nama' => auth()->user()->nama,
+                'nama' => $user->nama,
                 'email' => auth()->user()->email,
                 'phone' => auth()->user()->telepon,
             ),

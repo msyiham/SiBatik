@@ -73,16 +73,19 @@ class CustomerController extends Controller
                 "telepon" =>$request->telepon,
                 "password" =>$hash,
                 "alamat" =>$request->alamat,
-                // "status" => $request->status,
+                "status" => $request->status,
                 "created_at" => now()
             ]);
             // event(new Registered($user));
             Alert::success('Yeay','Registrasi Sukses');
             $user->assignRole(User::ROLE_USER);
-            return redirect('/login');
+            event(new Registered($user));
+            return redirect()->route('verification.notice')->with('success', 'registrasi dulu ya');
+
             // return dd($user);
         }
     }
+
 
     /**
      * Display the specified resource.

@@ -12,6 +12,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\HistoryOrderController;
+use App\Http\Controllers\VerificationController;
 use App\Models\User;
 /*
 |--------------------------------------------------------------------------

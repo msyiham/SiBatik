@@ -15,6 +15,7 @@ class LoginController extends Controller
     {
         return view ('user.login.Login');
     }
+
     public function authenticate(Request $request)
     {
         $request->validate([
