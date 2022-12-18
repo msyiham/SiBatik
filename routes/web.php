@@ -52,30 +52,10 @@ Route::post('/login', [App\Http\Controllers\LoginController::class,'authenticate
     ->name('proses.login');
 
 
-//halaman admin
-
-
-
-//crud customer
 Route::get('/customers/regis', [CustomerController::class,'create'])
     ->name('customers.create');
 Route::post('/customers', [CustomerController::class,'store'])
     ->name('customers.store');
-
-// Route::resource('customers', CustomerController::class);
-
-//crud product
-
-Route::get('/product/create', [ProductController::class,'create'])
-    ->name('products.create');
-Route::post('/product', [ProductController::class,'store'])
-    ->name('products.store');
-Route::get('/edit/{id_product}', [ProductController::class,'edit'])
-    ->name('products.edit');
-Route::get('/delete/{id_product}', [ProductController::class,'destroy'])
-    ->name('products.delete');
-Route::patch('/update/{id_product}', [ProductController::class,'update'])
-    ->name('products.update');
 
 Route::group(["middleware" => ["auth","middleware" => "role:".User::ROLE_USER]],function(){
     Route::group(["prefix" => "cart" , "as" => "cart."],function(){
@@ -123,4 +103,14 @@ Route::group(["middleware" => ["auth","middleware" => "role:".User::ROLE_ADMIN]]
     Route::get('/Dashbord', [App\Http\Controllers\DashboardController::class,'index']);
     Route::get('/order-detail/{id}', [App\Http\Controllers\OrderController::class,'orderDetail']);
     Route::get('/edit', [App\Http\Controllers\AdminController::class,'editproduct']);
+    Route::get('/product/create', [ProductController::class,'create'])
+    ->name('products.create');
+    Route::post('/product', [ProductController::class,'store'])
+        ->name('products.store');
+    Route::get('/edit/{id_product}', [ProductController::class,'edit'])
+        ->name('products.edit');
+    Route::get('/delete/{id_product}', [ProductController::class,'destroy'])
+        ->name('products.delete');
+    Route::patch('/update/{id_product}', [ProductController::class,'update'])
+        ->name('products.update');
 });
