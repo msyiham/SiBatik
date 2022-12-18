@@ -226,23 +226,29 @@
                         <input type="hidden" name="harga" value="{{ number_format($products->harga)  }}">
                         <hr class="singleline">
                         <div> <span class="product_info">{!! $products['keterangan'] !!}<span></div>
-                        <div><b><span class="">Stok<span></b></div>
-                        <div> <span class="product_info">{{ $products->stok }}<span> </div>
-                        <input type="hidden" name="harga" value="{{ $products->stok }}">
-                        <div><b><span class="">Ukuran<span></b></div>
-                            <div> <span class="size">{{ $products->ukuran }} x 1 meter<span></div>
-                        <hr class="singleline">
-                        <div class="row">
-                            <div class="col-xs-6 ">
-                                {{-- @if($products->stok == 0) --}}
-
-                                    <b><label for="quantity">Jumlah</label></b>
-                                    <input id="numberbox" class="form-control" type="number" name="qty" pattern="[0-9]*" min="1" max={{ $products->stok }} value="0" style="width: 80px;">    
+                            <div><b><span class="">Stok<span></b></div>
+                                @if(!$products->stok == 0)
+                                    <div> <span class="product_info">{{ $products->stok }}<span> </div>
+                                    <input type="hidden" name="harga" value="{{ $products->stok }}">
+                                @else
+                                    <span class="">Stok Habis<span>
+                                @endif
+                                <div><b><span class="">Ukuran<span></b></div>
+                                    <div> <span class="size">{{ $products->ukuran }} x 1 meter<span></div>
+                                <hr class="singleline">
+                                <div class="row">
+                                    <div class="col-xs-6 ">
+                                            @if(!$products->stok == 0)
+                                            <b><label for="quantity">Jumlah</label></b>
+                                            <input id="numberbox" class="form-control" type="number" name="qty" pattern="[0-9]*" min="1" max={{ $products->stok }}
+                                            value="0" style="width: 80px;">    
+                                    @endif 
                             </div>
                             <div class="col-xs-6 mt-4">
                                 @if(Auth::check())
-                                @if($products->stok >= 0) <button type="button" class="btn btn-success shop-button btn-buy-now">Tambahkan keranjang</button> @else stok habis @endif
-                                  
+                                    @if(!$products->stok == 0)
+                                    <button type="button" class="btn btn-success shop-button btn-buy-now">Tambahkan keranjang</button>
+                                    @endif
                                 @endif
                             </div>
                         </div>
@@ -250,7 +256,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div>
 </div>
 
 <form class="d-none" method="post" id="frmCart" action="{{ route('cart.addCart') }}">
@@ -285,13 +291,5 @@
             $("#frmCart").submit();
         })
     })
-</script>
-<script>
-    $('#numberbox').keyup(function(){
-  if ($(this).val() >= ($products->stok)){
-    alert("Inputan salah");
-    $(this).val($products->stok);
-  }
-});
 </script>
 @endsection

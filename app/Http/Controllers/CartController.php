@@ -85,10 +85,7 @@ class CartController extends Controller
     	{
     		return redirect('pesan/'.$id);
     	}
-        // else if($request $barang->stok == '0')
-        // {
-        //     return ('stok habis');
-        // }
+
 
     	//cek validasi
     	$cek_pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();

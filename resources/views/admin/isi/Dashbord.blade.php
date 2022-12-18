@@ -33,7 +33,8 @@
     <h3><i class="fa-solid fa-gauge-high "></i> Dashboard </h3>
     <hr>
     <div class="row">
-        <div class="card bg-success col-md-4 a" style="width: 18rem; height:10rem;">
+
+        <div class="card bg-success col-12 col-sm-4 col-lg-4 me-5 mb-3" style="width: 18rem; height:10rem;">
             <div class="card-body-icon">
                 <i class="fas fa-shirt bg-success"></i>
             </div>
@@ -44,7 +45,7 @@
               <a href="/Produk"><p class="card-text text-white"> lihat detail <i class="fas fa-angle-double-right"></i> </p></a>
             </div>
           </div>
-        <div class="card bg-danger col-md-4 b" style="width: 18rem; height:10rem;">
+        <div class="card bg-danger col-12 col-sm-4 col-lg-4 me-5 mb-3" style="width: 18rem; height:10rem;">
             <div class="card-body-icon">
                 <i class="fa-solid fa-user  "></i>
             </div>
@@ -55,7 +56,7 @@
               <a href="/Customer"><p class="card-text text-white"> lihat detail <i class="fas fa-angle-double-right"></i> </p></a>
             </div>
           </div>
-        <div class="card bg-warning col-md-4" style="width: 18rem; height:10rem;">
+        <div class="card bg-warning col-12 col-sm-4 col-lg-4 me-5 mb-3" style="width: 18rem; height:10rem;">
             <div class="card-body-icon">
                 <i class="fa-solid fa-shopping-cart"></i>
             </div>

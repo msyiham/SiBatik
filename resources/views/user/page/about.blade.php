@@ -164,8 +164,8 @@ background:#eee;
     </div>
   </section>
   {{-- Daftar Anggota --}}
-  <section>
-    <h1 class="text-center mt-5"><b><u>Daftar Anggota</u></b></h1>
+  <section class="about-seccion layout_padding" style="background-color:#222831;">
+    <h1 class="text-center text-white "><b><u>Daftar Anggota</u></b></h1>
     <div class="container mt-5">
       <div class="row justify-content-center">
         <div class="col-12 col-sm-8 col-lg-6">
@@ -181,7 +181,7 @@ background:#eee;
         <div class="col-12 col-sm-6 col-lg-4">
           <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
             <!-- Team Thumb-->
-            <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+            <div class="advisor_thumb"><img src="images/4.png" alt="">
               <!-- Social Info-->
               <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
             </div>
@@ -196,7 +196,7 @@ background:#eee;
         <div class="col-12 col-sm-6 col-lg-4">
           <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
             <!-- Team Thumb-->
-            <div class="advisor_thumb"><img src="images/fal23.jpg" alt="">
+            <div class="advisor_thumb"><img src="images/2.png" alt="">
               <!-- Social Info-->
               <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
             </div>
@@ -211,7 +211,7 @@ background:#eee;
         <div class="col-12 col-sm-6 col-lg-4">
           <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
             <!-- Team Thumb-->
-            <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="">
+            <div class="advisor_thumb"><img src="images/1.png" alt="">
               <!-- Social Info-->
               <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
             </div>
@@ -228,13 +228,13 @@ background:#eee;
         <div class="col-12 col-sm-6 col-lg-4">
           <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
             <!-- Team Thumb-->
-            <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="">
+            <div class="advisor_thumb"><img src="images/3.png" alt="">
               <!-- Social Info-->
               <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
             </div>
             <!-- Team Details-->
             <div class="single_advisor_details_info">
-              <h6>Niloy Islam</h6>
+              <h6>Nindi Alifasari</h6>
               <p class="designation">Marketing Manager</p>
             </div>
           </div>
@@ -242,13 +242,13 @@ background:#eee;
         <div class="col-12 col-sm-6 col-lg-4">
           <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
             <!-- Team Thumb-->
-            <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="">
+            <div class="advisor_thumb"><img src="images/5.png" alt="">
               <!-- Social Info-->
               <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
             </div>
             <!-- Team Details-->
             <div class="single_advisor_details_info">
-              <h6>Niloy Islam</h6>
+              <h6>Nina Aryi N</h6>
               <p class="designation">Marketing Manager</p>
             </div>
           </div>
