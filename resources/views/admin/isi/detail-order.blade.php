@@ -29,6 +29,7 @@
                                 <th>No</th>
                                 {{-- <th>Gambar</th> --}}
                                 <th>Id Barang</th>
+                                <th>Status</th>
                                 <th>Jumlah</th>
                                 <th>Harga</th>
                                 <th>Total</th>
@@ -47,6 +48,14 @@
                                 {{-- <td><img src="{{ $id_product->gambar }}" alt="" style="width: 100px; height: 100px;"></td>
                                 <td>{{ $id_product->nama_produk }}</td> --}}
                                 <td>{{ $order_detail->product_id }}</td>
+                                <td>
+                                    @if($order->status == 0)
+                                    Belum dibayar
+                                    @else
+                                    Sudah dibayar 
+                                    @endif
+                                </td>
+                                
                                 <td>{{ $order_detail->quantity }} kain</td>
                                 <td>Rp. {{ number_format($order_detail->price) }}</td>
                                 <td><strong>Rp. {{ number_format($order->total) }}</strong></td>
